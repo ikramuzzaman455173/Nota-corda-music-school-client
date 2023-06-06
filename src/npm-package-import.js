@@ -54,3 +54,25 @@ Swal.fire({
   icon: 'error',
   confirmButtonText: 'Cool'
 })
+
+//React Query Initial Setup
+// npm i react-query
+// import { QueryClientProvider, QueryClient } from 'react-query'
+// Create a client
+// const queryClient = new QueryClient()
+{/* <QueryClientProvider client={queryClient}> */}
+{/* </QueryClientProvider> */ }
+
+
+// React Helpmet Crete Dynamic Page Title
+import { HelmetProvider } from 'react-helmet-async'
+  <HelmetProvider>
+</HelmetProvider>
+
+// use for pages
+{/* <Helmet>
+<title>simple page || Home</title>
+</Helmet> */}
+
+// Initial Setup Axios
+
