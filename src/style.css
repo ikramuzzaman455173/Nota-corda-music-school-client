@@ -8,7 +8,7 @@
 html{
   overflow-x:hidden;
 }
-.light-theme{
+/* .light-theme{
   --black: #444;
   --light-color: #777;
   --bg-color: #fff;
@@ -16,12 +16,12 @@ html{
 .dark-theme{
   --black: #fff;
   --light-color: #ddd;
-  --bg-color:#2c3e50;
-}
+  --bg-color:#2c3e50; */
+/* } */
 
-body{
+/* body{
   background-color: var(--bg-color);
   color:var(--black);
   width:100vw;
   min-height:100vh;
-}
+} */

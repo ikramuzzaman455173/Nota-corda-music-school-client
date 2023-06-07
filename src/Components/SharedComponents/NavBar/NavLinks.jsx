@@ -4,7 +4,8 @@ import { MdLogout } from "react-icons/md";
 import { NavLink, useLocation } from 'react-router-dom';
 import ImgTooltip from '../../ImgTooltip';
 import UseAuth from '../../../Hooks/UseAuth';
-import ToggleButton from "../../ToggleSwitch";
+import Switcher from "../../DarkMode/SwithDarkMode";
+// import ToggleButton from "../../DarkMode/ToggleSwitch";
 const NavLinks = ({ open }) => {
   const { user, logOut } = UseAuth()
   const Links = [
@@ -17,7 +18,7 @@ const NavLinks = ({ open }) => {
 
   return (
     <>
-      <ul className={`md:flex md:items-center md:pb-0 pb-12 bg-white absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
+      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
         {Links.map((link) => (
           <li key={link.name} className='md:ml-8 md:my-0 my-7 font-semibold'>
             <NavLink to={link.link} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>{link.name}</NavLink>
@@ -27,9 +28,7 @@ const NavLinks = ({ open }) => {
           <>
             <li className='md:ml-8 md:my-0 my-7 font-semibold'>
               <NavLink
-                to="/dashboard"
-                className={`text-gray-800 hover:text-blue-400 duration-500 ${location.pathname === '/myToys' ? 'text-blue-400' : ''}`}
-              >
+                to="/dashboard" className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
                 Dashboard
               </NavLink>
             </li>
@@ -52,9 +51,7 @@ const NavLinks = ({ open }) => {
           </>
 
         )}
-        <div className="flex items-center pl-6">
-          <ToggleButton/>
-        </div>
+        <Switcher/>
       </ul>
     </>
   )

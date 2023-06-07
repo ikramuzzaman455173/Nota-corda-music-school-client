@@ -22,7 +22,7 @@ const NavBar = () => {
   }, []);
   return (
     <div className='shadow-md w-full fixed z-20 top-0 left-0'>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+      <div className='md:flex items-center justify-between bg-red-300  dark:text-white dark:bg-white py-4 md:px-10 px-7'>
         {/* logo section */}
         <Link to='/'>
           <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
