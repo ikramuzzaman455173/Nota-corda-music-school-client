@@ -21,8 +21,8 @@ const NavBar = () => {
     };
   }, []);
   return (
-    <div className='shadow-md w-full fixed z-20 top-0 left-0'>
-      <div className='md:flex items-center justify-between bg-red-300  dark:text-white dark:bg-white py-4 md:px-10 px-7'>
+    <div className='shadow-md dark:border-b-[1px] dark:rounded-md w-full fixed z-20 top-0 left-0'>
+      <div className='md:flex items-center justify-between bg-white dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]  py-4 md:px-10 px-7'>
         {/* logo section */}
         <Link to='/'>
           <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
@@ -30,7 +30,7 @@ const NavBar = () => {
           </div>
         </Link>
         {/* Menu icon */}
-        <div onClick={handleToggle} className='absolute right-8 top-6 active:text-error font-semibold cursor-pointer md:hidden w-7 h-7'>
+        <div onClick={handleToggle} className='absolute right-8 top-6 active:text-error dark:text-white font-semibold cursor-pointer md:hidden w-7 h-7'>
           {open ? <XMarkIcon /> : <Bars3BottomRightIcon />}
         </div>
         {/* link items */}

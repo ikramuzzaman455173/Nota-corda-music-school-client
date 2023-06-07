@@ -18,7 +18,7 @@ const NavLinks = ({ open }) => {
 
   return (
     <>
-      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
+      <ul className={`md:flex md:items-center md:pb-0 pb-12 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-15' : 'top-[-490px]'}`}>
         {Links.map((link) => (
           <li key={link.name} className='md:ml-8 md:my-0 my-7 font-semibold'>
             <NavLink to={link.link} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>{link.name}</NavLink>

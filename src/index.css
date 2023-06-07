@@ -1,17 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .active{
-  @apply font-semibold tracking-wide text-error active:font-bold transition-colors duration-200
+  @apply font-semibold tracking-wide text-error dark:text-warning active:font-bold transition-colors duration-200
 }
 
 .active-style{
-  @apply underline underline-offset-8 decoration-2 decoration-accent hover:text-orange-500
+  @apply underline underline-offset-8 decoration-2 decoration-info hover:text-accent
 }
 
 .default{
-  @apply font-bold tracking-wide text-white dark:text-gray-700  transition-colors duration-200 hover:text-accent
+  @apply font-medium dark:font-Merienda font-Pt tracking-wide text-slate-600 dark:text-white  transition-colors duration-200 hover:text-accent dark:hover:text-accent
 }
 
 .login-active{
@@ -20,8 +21,4 @@
 
 .login-btn{
   @apply text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-slate-600 duration-300 transition
-}
-
-.theme-toggle{
-  @apply w-10 h-10 relative rounded-full transition duration-500 transform p-1 text-white
 }
