@@ -1,9 +1,9 @@
 import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
-import UseAuth from '../../Hooks/UseAuth'
-import { toast } from 'react-hot-toast'
+// import { toast } from 'react-hot-toast'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { savedUser } from '../../CommonApi/Auth'
+// import { savedUser } from '../../CommonApi/Auth'
+import UseAuth from '../../Hooks/UseAuth'
 
 const HandleGoogle = () => {
   const { signInWithGoogle, setLoading } = UseAuth()
@@ -21,7 +21,7 @@ const HandleGoogle = () => {
       }).catch(error => {
         setLoading(false)
         console.log(`Error:`, error.message);
-        toast.error(error.message)
+        // toast.error(error.message)
       })
   }
 

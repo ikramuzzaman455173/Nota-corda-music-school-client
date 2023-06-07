@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import HandleGoogle from '../Login/HandleGoogle'
-import PasswordHideShow from '../Shared/PasswordHideShow'
+import PasswordHideShow from '../SharedComponents/PasswordHideShow'
 import UseAuth from '../../Hooks/UseAuth'
 import { TbFidgetSpinner } from 'react-icons/tb'
-import { savedUser } from '../../CommonApi/Auth'
+// import { savedUser } from '../../CommonApi/Auth'
 
 
 const SignUp = () => {
@@ -13,8 +13,8 @@ const SignUp = () => {
   const location = useLocation()
   const from = location.state?.from?.pathname||'/'
   {/* ====handle signup new user===== */ }
-  const imageHostingToken = import.meta.env.VITE_IMAGE_UPLOAD_APIKEY
-  const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`
+  // const imageHostingToken = import.meta.env.VITE_IMAGE_UPLOAD_APIKEY
+  // const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`
   const handleSignup = (event) => {
     event.preventDefault()
     const form = event.target
@@ -22,39 +22,45 @@ const SignUp = () => {
     const email = form.email.value
     const password = form.password.value
     //image upload
-    const image = form.image.files[0]
-    const formData = new FormData()
-    formData.append('image', image)
-    fetch(imageHostingUrl, {
-      method: 'POST',
-      body: formData
-    })
-      .then(res => res.json())
-      .then(imageResponse => {
-        if (imageResponse.success) {
-          const imgURL = imageResponse.data.display_url
-          createUser(email, password)
-            .then((result) => {
-              updateUserProfile(name, imgURL)
-                .then(() => {
-                  // toast.success('Register Account Successfully !!!')
-                  //current user save to the db
-                  savedUser(result.user)
-                  setTimeout(() => {
-                    navigate(from,{replace:true})
-                  }, 2000);
-                }).catch(error => {
-                  // toast.error(error.message)
-                })
+    // const image = form.image.files[0]
+    // const formData = new FormData()
+    // formData.append('image', image)
+    // fetch(imageHostingUrl, {
+    //   method: 'POST',
+    //   body: formData
+    // })
+    //   .then(res => res.json())
+    //   .then(imageResponse => {
+    //     if (imageResponse.success) {
+    //       const imgURL = imageResponse.data.display_url
+    //       createUser(email, password)
+    //         .then((result) => {
+    //           updateUserProfile(name, imgURL)
+    //             .then(() => {
+    //               // toast.success('Register Account Successfully !!!')
+    //               //current user save to the db
+    //               savedUser(result.user)
+    //               setTimeout(() => {
+    //                 navigate(from,{replace:true})
+    //               }, 2000);
+    //             }).catch(error => {
+    //               // toast.error(error.message)
+    //             })
 
-            }).catch(error => {
-              // toast.error(error.message)
-            })
-        }
-        console.log(imageResponse);
-      }).catch(error => {
-        // toast.error(error.message)
-      })
+    //         }).catch(error => {
+    //           // toast.error(error.message)
+    //         })
+    //     }
+    //     console.log(imageResponse);
+    //   }).catch(error => {
+    //     // toast.error(error.message)
+    //   })
+    createUser(email, password)
+    .then(result => {
+            console.log(result.user);
+          }).catch(error => {
+            console.log(`Error:`,error.message);
+          })
     event.target.reset()
   }
 
@@ -93,7 +99,7 @@ const SignUp = () => {
                 Select Image:
               </label>
               <input
-                required
+                
                 type='file'
                 id='image'
                 name='image'

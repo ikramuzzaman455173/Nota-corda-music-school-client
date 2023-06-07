@@ -1,12 +1,12 @@
+import {useState} from "react";
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { TbFidgetSpinner } from 'react-icons/tb'
-import { useRef, useState } from 'react'
-import PasswordHideShow from '../Shared/PasswordHideShow'
+import PasswordHideShow from '../SharedComponents/PasswordHideShow'
 import UseAuth from '../../Hooks/UseAuth'
 import HandleGoogle from './HandleGoogle'
-import { savedUser } from '../../CommonApi/Auth'
+// import { savedUser } from '../../CommonApi/Auth'
 const Login = () => {
-  const { loading, setLoading, signIn, resetPassword } = UseAuth()
+  const { loading, setLoading, signIn} = UseAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname||'/'
@@ -21,8 +21,8 @@ const Login = () => {
       .then(result => {
         console.log(result.user);
         //save user to db
-        savedUser(result.user)
-        toast.success('LogIn Account Successfully !!!')
+        // savedUser(result.user)
+        // toast.success('LogIn Account Successfully !!!')
         setTimeout(() => {
           navigate(from, { replace: true })
         }, 2000);
@@ -32,25 +32,6 @@ const Login = () => {
         toast.error(error.message)
       })
   }
-
-  const emailRef = useRef()
-  {/* ====handleResetPassword===== */ }
-  const handleResetPassword = () => {
-    const email = emailRef.current.value
-    console.log(`email`, email);
-    resetPassword(email)
-      .then(() => {
-        setLoading(false)
-        // toast.success('Please Chack your email reset the password !!!')
-      }).catch(error => {
-        setLoading(false)
-        console.log(`Error:`, error.message);
-        // toast.error(error.message)
-      })
-
-  }
-
-
 
   const [passwordshow, setPasswordshow] = useState(true)
   const handleShowPassowrd = () => {
@@ -76,7 +57,6 @@ const Login = () => {
                 Email address
               </label>
               <input
-                ref={emailRef}
                 type='email'
                 name='email'
                 id='email'
@@ -113,11 +93,11 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <div className='space-y-1'>
+        {/* <div className='space-y-1'>
           <button onClick={handleResetPassword} className='text-xs hover:underline hover:text-rose-500 text-gray-400'>
             Forgot password?
           </button>
-        </div>
+        </div> */}
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
           <p className='px-3 text-sm dark:text-gray-400'>
