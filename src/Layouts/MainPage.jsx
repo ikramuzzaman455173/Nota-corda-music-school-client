@@ -2,7 +2,8 @@ import { Outlet } from "react-router-dom"
 
 import { Helmet } from "react-helmet-async"
 import NavBar from "../Components/SharedComponents/NavBar/NavBar"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainPage = () => {
   return (
@@ -16,7 +17,7 @@ const MainPage = () => {
       </div>
       {/* <Footer/> */}
       {/* <div className='text-center font-bold  text-4xl relative top-40'>This Is Our Home Components 😃</div> */}
-
+      <ToastContainer />
     </>
   )
 }

@@ -7,6 +7,7 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 import { useForm } from 'react-hook-form'
 import PasswordHideShow2 from '../SharedComponents/PasswordHideShow2'
 import { savedUser } from '../../CommonApi/AuthUserApi'
+import { toast } from 'react-toastify'
 
 const SignUp = () => {
   const { createUser, updateUserProfile, loading, setLoading } = UseAuth()
@@ -17,10 +18,10 @@ const SignUp = () => {
   const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`
   const [passwordshow, setPasswordshow] = useState(true)
   const [cpasswordshow, setcpasswordshow] = useState(true)
-  const { register, handleSubmit, formState: { errors },watch, } = useForm()
+  const { register, handleSubmit, formState: { errors }, watch, } = useForm()
 
   const onSubmit = async (data) => {
-    console.log(data,'data');
+    console.log(data, 'data');
     try {
       setLoading(true)
       const imageFile = data.image[0]
@@ -37,14 +38,19 @@ const SignUp = () => {
       const imageUrl = result.data.url
       const user = await createUser(data.email, data.password)
       if (user) {
-        await updateUserProfile(data.name,imageUrl)
+        await updateUserProfile(data.name, imageUrl)
         setLoading(false)
         console.log(`Sign Up Successfully !!!`);
+        toast(`Sign Up Successfully !!!`, { autoClose: 2000 });
         savedUser(data)
-        navigate(from, { replace: true })
-        }
+        setTimeout(() => {
+          navigate(from, { replace: true })
+        }, 3000);
+      }
     } catch (error) {
       console.error('Image upload error:', error)
+      toast.error(error.message)
+      setLoading(false)
     } finally {
       setLoading(false)
     }

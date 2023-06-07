@@ -5,6 +5,7 @@ import PasswordHideShow from '../SharedComponents/PasswordHideShow'
 import UseAuth from '../../Hooks/UseAuth'
 import HandleGoogle from './HandleGoogle'
 import { savedUser } from "../../CommonApi/AuthUserApi";
+import { toast } from "react-toastify";
 // import { savedUser } from '../../CommonApi/Auth'
 const Login = () => {
   const { loading, setLoading, signIn} = UseAuth()
@@ -23,14 +24,14 @@ const Login = () => {
         console.log(result.user);
         // save user to db
         savedUser(result.user)
-        // toast.success('LogIn Account Successfully !!!')
+        toast('LogIn Account Successfully !!!',{autoClose:2000})
         setTimeout(() => {
           navigate(from, { replace: true })
-        }, 2000);
+        }, 3000);
       }).catch(error => {
-        setLoading(false)
         console.log(`Error:`, error.message);
         toast.error(error.message)
+        setLoading(false)
       })
   }
 
