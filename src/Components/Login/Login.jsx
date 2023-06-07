@@ -4,6 +4,7 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 import PasswordHideShow from '../SharedComponents/PasswordHideShow'
 import UseAuth from '../../Hooks/UseAuth'
 import HandleGoogle from './HandleGoogle'
+import { savedUser } from "../../CommonApi/AuthUserApi";
 // import { savedUser } from '../../CommonApi/Auth'
 const Login = () => {
   const { loading, setLoading, signIn} = UseAuth()
@@ -20,8 +21,8 @@ const Login = () => {
     signIn(email, password)
       .then(result => {
         console.log(result.user);
-        //save user to db
-        // savedUser(result.user)
+        // save user to db
+        savedUser(result.user)
         // toast.success('LogIn Account Successfully !!!')
         setTimeout(() => {
           navigate(from, { replace: true })
@@ -114,7 +115,7 @@ const Login = () => {
           >
             Sign up
           </Link>
-          
+
         </p>
       </div>
     </div>

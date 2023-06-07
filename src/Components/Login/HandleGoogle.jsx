@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { useLocation, useNavigate } from 'react-router-dom'
 // import { savedUser } from '../../CommonApi/Auth'
 import UseAuth from '../../Hooks/UseAuth'
+import { savedUser } from '../../CommonApi/AuthUserApi'
 
 const HandleGoogle = () => {
   const { signInWithGoogle, setLoading } = UseAuth()

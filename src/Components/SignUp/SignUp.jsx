@@ -6,6 +6,7 @@ import UseAuth from '../../Hooks/UseAuth'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { useForm } from 'react-hook-form'
 import PasswordHideShow2 from '../SharedComponents/PasswordHideShow2'
+import { savedUser } from '../../CommonApi/AuthUserApi'
 
 const SignUp = () => {
   const { createUser, updateUserProfile, loading, setLoading } = UseAuth()
@@ -39,7 +40,7 @@ const SignUp = () => {
         await updateUserProfile(data.name,imageUrl)
         setLoading(false)
         console.log(`Sign Up Successfully !!!`);
-
+        savedUser(data)
         navigate(from, { replace: true })
         }
     } catch (error) {
