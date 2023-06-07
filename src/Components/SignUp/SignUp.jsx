@@ -5,50 +5,57 @@ import PasswordHideShow from '../SharedComponents/PasswordHideShow'
 import UseAuth from '../../Hooks/UseAuth'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { useForm } from 'react-hook-form'
+import PasswordHideShow2 from '../SharedComponents/PasswordHideShow2'
 
 const SignUp = () => {
   const { createUser, updateUserProfile, loading, setLoading } = UseAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
-
+  const imageHostingToken = import.meta.env.VITE_IMAGE_UPLOAD_APIKEY
+  const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`
   const [passwordshow, setPasswordshow] = useState(true)
   const [cpasswordshow, setcpasswordshow] = useState(true)
-  const [error, seterror] = useState('')
   const { register, handleSubmit, formState: { errors },watch, } = useForm()
 
-  const onSubmit = (data) => {
-    // createUser(data.email, data.password)
-    console.log(`data:`, data);
+  const onSubmit = async (data) => {
+    console.log(data,'data');
+    try {
+      setLoading(true)
+      const imageFile = data.image[0]
 
-    // .then(result => {
-    //   // console.log(result.user);
-    //   updateUserProfile(data.name, data.photoUrl)
-    //     .then(() => {
-    //       const saveUser={name:data.name,email:data.email}
-    //       fetch(`https://bistro-boss-server-eight-orcin.vercel.app/users`, {
-    //             method: "POST",
-    //             headers: {
-    //               'content-type':'application/json'
-    //             },
-    //             body:JSON.stringify(saveUser)
-    //           })
-    //             .then(response => response.json())
-    //             .then(data => {
-    //               if (data.insertedId) {
-    //                 // console.log(data)
-    //                 toast('Register Account Successfully !!!',{autoClose:2000})
-    //                 // console.log('user profile info updated');
-    //               }
-    //             }).catch(error=>console.log(`404 page not found ${error.message}`))
-    //         })
-    //       })
+      const formData = new FormData()
+      formData.append('image', imageFile)
 
-    // reset(); // Reset the form after submission
+      const response = await fetch(imageHostingUrl, {
+        method: 'POST',
+        body: formData
+      })
+
+      const result = await response.json()
+      const imageUrl = result.data.url
+      const user = await createUser(data.email, data.password)
+      if (user) {
+        await updateUserProfile(data.name,imageUrl)
+        setLoading(false)
+        console.log(`Sign Up Successfully !!!`);
+
+        navigate(from, { replace: true })
+        }
+    } catch (error) {
+      console.error('Image upload error:', error)
+    } finally {
+      setLoading(false)
+    }
+
   }
 
   const handleShowPassowrd = () => {
-    setPasswordshow(!passwordshow || !cpasswordshow)
+    setPasswordshow(!passwordshow)
+  }
+
+  const handleShowConfirmPass = () => {
+    setcpasswordshow(!cpasswordshow)
   }
 
   return (
@@ -56,7 +63,6 @@ const SignUp = () => {
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
-          <p className='text-sm text-gray-400'>Welcome to AirCNC</p>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -79,7 +85,7 @@ const SignUp = () => {
               <label htmlFor='image' className='block mb-2 text-sm'>
                 Select Image:
               </label>
-              <input type='file' id='image' name='image' accept='image/*' />
+              <input type='file' required   {...register('image', { required: true })} name='image' accept='image/*' />
             </div>
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
@@ -144,10 +150,8 @@ const SignUp = () => {
                 placeholder='*******'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
               />
-              <PasswordHideShow
-                handleShowPassowrd={handleShowPassowrd}
-                passwordshow={passwordshow}
-              />
+              <PasswordHideShow2 cpasswordshow={cpasswordshow} handleShowConfirmPass={handleShowConfirmPass} />
+
             </div>
             {errors.confirmPassword && (
               <p className='text-red-500'>{errors.confirmPassword.message}</p>
