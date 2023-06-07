@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "aos": "^2.3.4",
     "axios": "^1.4.0",
     "daisyui": "^3.0.3",
     "firebase": "^9.22.1",
@@ -27,7 +28,8 @@
     "react-toggle-dark-mode": "^1.1.1",
     "react-tooltip": "^5.13.1",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.7.5"
+    "sweetalert2": "^11.7.5",
+    "swiper": "^9.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
