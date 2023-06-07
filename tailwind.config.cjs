@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   content: ["./src/**/*.{js,jsx}"],
   theme: {
     "primary": "#570DF8",
@@ -23,4 +24,7 @@ module.exports = {
   plugins: [
     require('daisyui'),
   ],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 };

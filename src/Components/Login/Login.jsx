@@ -114,7 +114,7 @@ const Login = () => {
           >
             Sign up
           </Link>
-          .
+          
         </p>
       </div>
     </div>

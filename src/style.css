@@ -1,0 +1,27 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+html{
+  overflow-x:hidden;
+}
+.light-theme{
+  --black: #444;
+  --light-color: #777;
+  --bg-color: #fff;
+}
+.dark-theme{
+  --black: #fff;
+  --light-color: #ddd;
+  --bg-color:#2c3e50;
+}
+
+body{
+  background-color: var(--bg-color);
+  color:var(--black);
+  width:100vw;
+  min-height:100vh;
+}
