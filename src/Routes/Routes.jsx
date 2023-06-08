@@ -4,6 +4,7 @@ import Login from '../Components/Login/Login'
 import SignUp from '../Components/SignUp/SignUp'
 import HomePage from '../Pages/HomePage/HomePage'
 import ErrorPage from '../Components/SharedComponents/ErrorPage'
+import DashboardLayout from '../Layouts/DashboardLayout'
 
 
 export const router = createBrowserRouter([
@@ -26,9 +27,15 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: '/dashboard',
-  //   element:<DashboardLayout/>
-  // }
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        
+      }
+    ]
+  }
 ])
 

@@ -25,7 +25,6 @@ const MainPage = () => {
       <Outlet></Outlet>
       </div>
       <Footer/>
-      {/* <div className='text-center font-bold  text-4xl relative top-40'>This Is Our Home Components 😃</div> */}
       <ToastContainer />
     </div>
   )
