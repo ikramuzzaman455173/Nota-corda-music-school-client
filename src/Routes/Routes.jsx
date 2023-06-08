@@ -5,6 +5,7 @@ import SignUp from '../Components/SignUp/SignUp'
 import HomePage from '../Pages/HomePage/HomePage'
 import ErrorPage from '../Components/SharedComponents/ErrorPage'
 import DashboardLayout from '../Layouts/DashboardLayout'
+import SelectClasses from '../Pages/Dashboard/SelectClasses'
 
 
 export const router = createBrowserRouter([
@@ -33,8 +34,9 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        
-      }
+        path: 'select-classes',
+        element:<SelectClasses/>
+      },
     ]
   }
 ])

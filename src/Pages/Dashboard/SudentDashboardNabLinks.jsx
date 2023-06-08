@@ -16,9 +16,9 @@ const StudentDashboardNabLinks = () => {
         </label>
         {/* Menu Links */}
         <NavLink
-          to='/select-classes'
+          to='select-classes'
           className={({ isActive }) =>
-            `d-nav-link ${isActive ? 'bg-gray-300  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
+            `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
             }`
           }
         >
@@ -28,9 +28,9 @@ const StudentDashboardNabLinks = () => {
       </NavLink>
 
         <NavLink
-          to='/enrolled-classes'
+          to='enrolled-classes'
           className={({ isActive }) =>
-            `d-nav-link ${isActive ? 'bg-gray-300  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
+            `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
             }`
           }
         >
@@ -40,9 +40,9 @@ const StudentDashboardNabLinks = () => {
       </NavLink>
 
         <NavLink
-          to='/payment'
+          to='payment'
           className={({ isActive }) =>
-            `d-nav-link ${isActive ? 'bg-gray-300  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
+            `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
             }`
           }
         >
@@ -52,9 +52,9 @@ const StudentDashboardNabLinks = () => {
       </NavLink>
 
         <NavLink
-          to='/payment-history'
+          to='payment-history'
           className={({ isActive }) =>
-            `d-nav-link ${isActive ? 'bg-gray-300  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
+            `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
             }`
           }
         >
