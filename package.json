@@ -24,6 +24,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.10.0",
+    "react-scroll": "^1.8.9",
     "react-toastify": "^9.1.2",
     "react-toggle-dark-mode": "^1.1.1",
     "react-tooltip": "^5.13.1",
