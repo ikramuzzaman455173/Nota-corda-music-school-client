@@ -55,7 +55,7 @@ function CarouselBanner() {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 3000,
       once: false,
     });
   }, []);
@@ -68,7 +68,7 @@ function CarouselBanner() {
       }}
     >
       <div className="absolute inset-0 md:bg-transparent bg-black opacity-20"></div>
-      <div className="w-full flex lg:px-20 py-20 flex-col relative z-10 items-center mt-16">
+      <div className="w-full flex lg:px-20 md:py-20 py-10 flex-col relative z-10 items-center mt-16">
         <h3
           className="md:text-7xl text-3xl my-2 font-bold md:w-full text-white text-center font-Pt dark:font-Merienda"
           data-aos={animationIndex === 0 ? 'fade-up' : animationIndex === 1 ? 'fade-down' : 'fade-right'}

@@ -5,66 +5,78 @@
       "class_name": "Piano",
       "instructor_name": "John Smith",
       "students": 12,
-      "image": "piano_image.jpg",
+      "image": "https://melody.ancorathemes.com/wp-content/uploads/2016/05/image-1-370x254.jpg",
       "class_duration": "1 hour",
       "class_level": "Beginner",
-      "available_setas": 5,
-      "description": "Learn to play the piano with expert guidance from John Smith in this beginner-level class. No prior experience required."
+      "available_seats": 5,
+      "description": "Learn to play the piano with expert guidance from John Smith in this beginner-level class. No prior experience required.",
+      "price": 50,
+      "email": "johnsmith@example.com"
     },
     {
       "class_id": 2,
       "class_name": "Guitar",
-      "instructor": "Emily Johnson",
+      "instructor_name": "Emily Johnson",
       "students": 10,
-      "image": "guitar_image.jpg",
+      "image": "https://melody.ancorathemes.com/wp-content/uploads/2016/05/services-1-370x370.jpg",
       "class_duration": "1 hour",
       "class_level": "Intermediate",
-      "available_setas": 3,
-      "description": "Take your guitar skills to the next level with Emily Johnson in this intermediate-level class. Perfect for those with some experience."
+      "available_seats": 3,
+      "description": "Take your guitar skills to the next level with Emily Johnson in this intermediate-level class. Perfect for those with some experience.",
+      "price": 40,
+      "email": "emilyjohnson@example.com"
     },
     {
       "class_id": 3,
       "class_name": "Violin",
-      "instructor": "Sarah Davis",
+      "instructor_name": "Sarah Davis",
       "students": 8,
-      "image": "violin_image.jpg",
+      "image": "https://melody.ancorathemes.com/wp-content/uploads/2016/05/services-2-370x370.jpg",
       "class_duration": "1 hour",
       "class_level": "Advanced",
-      "available_setas": 2,
-      "description": "Enhance your violin techniques and explore advanced repertoire under the guidance of Sarah Davis. This class is suitable for experienced violinists."
+      "available_seats": 2,
+      "description": "Enhance your violin techniques and explore advanced repertoire under the guidance of Sarah Davis. This class is suitable for experienced violinists.",
+      "price": 60,
+      "email": "sarahdavis@example.com"
     },
     {
       "class_id": 4,
       "class_name": "Singing",
-      "instructor": "Michael Thompson",
+      "instructor_name": "Michael Thompson",
       "students": 15,
-      "image": "singing_image.jpg",
+      "image": "https://melody.ancorathemes.com/wp-content/uploads/2016/05/image-2-370x254.jpg",
       "class_duration": "1 hour",
       "class_level": "Intermediate",
-      "available_setas": 3,
-      "description": "Discover the art of singing and improve your vocal skills with Michael Thompson in this intermediate-level class. Suitable for aspiring singers."
+      "available_seats": 3,
+      "description": "Discover the art of singing and improve your vocal skills with Michael Thompson in this intermediate-level class. Suitable for aspiring singers.",
+      "price": 45,
+      "email": "michaelthompson@example.com"
     },
     {
       "class_id": 5,
       "class_name": "Drums",
-      "instructor": "David Wilson",
+      "instructor_name": "David Wilson",
       "students": 6,
-      "image": "drums_image.jpg",
+      "image": "https://melody.ancorathemes.com/wp-content/uploads/2016/05/image-17.jpg",
       "class_duration": "1 hour",
       "class_level": "Beginner",
-      "available_setas": 4,
-      "description": "Learn the basics of drumming with David Wilson in this beginner-level class. No prior drumming experience required."
+      "available_seats": 4,
+      "description": "Learn the basics of drumming with David Wilson in this beginner-level class. No prior drumming experience required.",
+      "price": 55,
+      "email": "davidwilson@example.com"
     },
     {
       "class_id": 6,
       "class_name": "Music Theory",
-      "instructor": "Jennifer Lee",
+      "instructor_name": "Jennifer Lee",
       "students": 7,
-      "image": "music_theory_image.jpg",
+      "image": "https://images.unsplash.com/photo-1526142684086-7ebd69df27a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TXVzaWMlMjBUaGVvcnl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
       "class_duration": "1 hour",
       "class_level": "Intermediate",
-      "available_setas": 5,
-      "description": "Deepen your understanding of music theory concepts and expand your compositional skills with Jennifer Lee in this intermediate-level class."
+      "available_seats": 5,
+      "description": "Deepen your understanding of music theory concepts and expand your compositional skills with Jennifer Lee in this intermediate-level class.",
+      "price": 30,
+      "email": "jenniferlee@example.com"
     }
   ]
 }

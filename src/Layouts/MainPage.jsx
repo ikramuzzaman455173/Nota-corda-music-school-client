@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MainPage = () => {
   return (
-    <div className="w-[100vw] h-[100vh] bg-white text-slate-600 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
+    <div className="bg-white text-slate-600 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
         <Helmet>
         <title>Music School || Home Page</title>
       </Helmet>
