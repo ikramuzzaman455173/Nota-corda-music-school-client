@@ -28,8 +28,8 @@
 }
 
 .footer-span{
-  @apply cursor-pointer text-slate-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500
+  @apply cursor-pointer text-slate-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-warning hover:underline hover:text-info
 }
 .footer-ul{
-  @apply cursor-pointer list-disc text-slate-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500
+  @apply cursor-pointer list-disc text-slate-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-warning hover:underline hover:text-info
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaClock } from 'react-icons/fa';
 import { TfiLocationPin } from 'react-icons/tfi';
-import { MdSmartToy } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import SoclialMediaIcon from './SoclialMediaIcon';
 const Footer = () => {
@@ -12,7 +11,7 @@ const Footer = () => {
             <h1 className="text-xl font-semibold tracking-tight md:mx-3 xl:text-2xl">Subscribe our newsletter to get update.</h1>
 
             <div className="mt-6 md:mx-3 shrink-0 md:mt-0 md:w-auto">
-              <Link to='/register' className="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white duration-300 bg-accent rounded-lg gap-x-3 hover:bg-neutral focus:ring focus:ring-gray-300 focus:ring-opacity-80 cursor-pointer">
+              <Link to='/signUp' className="inline-flex items-center justify-center w-full px-4 py-2 text-sm darK:text-white dark:bg-warning text-white duration-300 bg-info rounded-lg gap-x-3 hover:bg-neutral cursor-pointer">
                 <span>Sign Up Now</span>
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
@@ -53,7 +52,7 @@ const Footer = () => {
 
               <div className="flex flex-col items-start mt-5 space-y-2">
                 <div className='flex items-center gap-4'>
-                  <FaClock className='text-4xl bg-blue-600 p-2 border-0 rounded-full' />
+                  <FaClock className='text-4xl dark:bg-warning bg-info p-2 border-0 rounded-full' />
                   <div className='flex flex-col gap-2'>
                   <p className='text-slate-400 font-medium'>Monday- Friday:</p>
                   <p><strong>08am - 12pm</strong></p>
@@ -62,7 +61,7 @@ const Footer = () => {
 
 
                 <div className='flex items-center gap-4'>
-                  <TfiLocationPin className='text-4xl bg-blue-600 p-2 border-0 rounded-full' />
+                  <TfiLocationPin className='text-4xl dark:bg-warning bg-info p-2 border-0 rounded-full' />
                   <div className='flex flex-col gap-2'>
                   <p className='text-slate-400 font-medium'>8121 Sierra Lane Tampa,</p>
                   <p><strong>Florida 33604</strong></p>
@@ -79,7 +78,7 @@ const Footer = () => {
 
               <div className="flex flex-col items-start mt-5 space-y-2">
                 <span className="footer-span">+880 768 473 4978</span>
-                <span className="footer-span lowercase">info@<span className='text-info lowercase'>music school</span>123.com</span>
+                <span className="footer-span lowercase">info@<span className='text-info lowercase'>musicschool</span>123.com</span>
               </div>
             </div>
           </div>
@@ -88,9 +87,8 @@ const Footer = () => {
 
           <div className="flex lg:flex-row md:flex-col flex-col items-center justify-between">
             <div className='flex items-center gap-2'>
-            <p className='text-4xl hover:text-info cursor-pointer transition duration-300'><MdSmartToy /></p>
             <span className='text-xl font-bold tracking-wide text-slate-300'>
-            <img className='w-24' src="https://www.toysrus.com/on/demandware.static/Sites-ToysRUs-Site/-/default/dw471a30ce/images/TRU_Logo.png" alt="site logo" />
+            <img className='w-40' src="http://notacorda.like-themes.com/wp-content/uploads/2017/11/nota_logo.png" alt="site logo" />
             </span>
           </div>
           <div className='pt-5'>
