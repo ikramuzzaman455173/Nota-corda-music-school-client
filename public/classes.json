@@ -1,0 +1,70 @@
+{
+  "classes": [
+    {
+      "class_id": 1,
+      "class_name": "Piano",
+      "instructor_name": "John Smith",
+      "students": 12,
+      "image": "piano_image.jpg",
+      "class_duration": "1 hour",
+      "class_level": "Beginner",
+      "available_setas": 5,
+      "description": "Learn to play the piano with expert guidance from John Smith in this beginner-level class. No prior experience required."
+    },
+    {
+      "class_id": 2,
+      "class_name": "Guitar",
+      "instructor": "Emily Johnson",
+      "students": 10,
+      "image": "guitar_image.jpg",
+      "class_duration": "1 hour",
+      "class_level": "Intermediate",
+      "available_setas": 3,
+      "description": "Take your guitar skills to the next level with Emily Johnson in this intermediate-level class. Perfect for those with some experience."
+    },
+    {
+      "class_id": 3,
+      "class_name": "Violin",
+      "instructor": "Sarah Davis",
+      "students": 8,
+      "image": "violin_image.jpg",
+      "class_duration": "1 hour",
+      "class_level": "Advanced",
+      "available_setas": 2,
+      "description": "Enhance your violin techniques and explore advanced repertoire under the guidance of Sarah Davis. This class is suitable for experienced violinists."
+    },
+    {
+      "class_id": 4,
+      "class_name": "Singing",
+      "instructor": "Michael Thompson",
+      "students": 15,
+      "image": "singing_image.jpg",
+      "class_duration": "1 hour",
+      "class_level": "Intermediate",
+      "available_setas": 3,
+      "description": "Discover the art of singing and improve your vocal skills with Michael Thompson in this intermediate-level class. Suitable for aspiring singers."
+    },
+    {
+      "class_id": 5,
+      "class_name": "Drums",
+      "instructor": "David Wilson",
+      "students": 6,
+      "image": "drums_image.jpg",
+      "class_duration": "1 hour",
+      "class_level": "Beginner",
+      "available_setas": 4,
+      "description": "Learn the basics of drumming with David Wilson in this beginner-level class. No prior drumming experience required."
+    },
+    {
+      "class_id": 6,
+      "class_name": "Music Theory",
+      "instructor": "Jennifer Lee",
+      "students": 7,
+      "image": "music_theory_image.jpg",
+      "class_duration": "1 hour",
+      "class_level": "Intermediate",
+      "available_setas": 5,
+      "description": "Deepen your understanding of music theory concepts and expand your compositional skills with Jennifer Lee in this intermediate-level class."
+    }
+  ]
+}

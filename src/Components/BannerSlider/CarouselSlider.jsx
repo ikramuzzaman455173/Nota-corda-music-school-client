@@ -18,7 +18,7 @@ function CarouselBanner() {
     {
       image: 'https://melody.ancorathemes.com/wp-content/uploads/2016/05/slider2.jpg',
       heading: 'music is your world',
-      title: 'don\'t miss a chance',
+      title: "don't miss a chance",
     },
   ];
 
@@ -64,7 +64,7 @@ function CarouselBanner() {
     <div
       className="w-full absolute bg-center bg-cover md:h-[32rem] dark:border-b-2 dark:border-white carousel-banner h-[25rem] m-auto py-16 px-4  top-0 group"
       style={{
-        backgroundImage: `url(${slides[currentIndex].image})`
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${slides[currentIndex].image})`
       }}
     >
       <div className="absolute inset-0 md:bg-transparent bg-black opacity-20"></div>
