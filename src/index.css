@@ -26,3 +26,10 @@
 .awesome-btn{
   @apply bg-gradient-to-r from-purple-600 to-blue-400  hover:from-pink-600 hover:to-orange-400 text-white font-semibold font-Pt dark:font-Merienda tracking-wider
 }
+
+.footer-span{
+  @apply cursor-pointer text-slate-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500
+}
+.footer-ul{
+  @apply cursor-pointer list-disc text-slate-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500
+}

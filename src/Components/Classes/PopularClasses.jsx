@@ -7,11 +7,11 @@ const PopularClasses = () => {
   const [data, setData] = useState([])
   useEffect(() => {
       fetch('/classes.json').then(response => response.json()).then(data => {
-        console.log(data.classes)
+        // console.log(data.classes)
         setData(data.classes)
       }).catch(error=>console.log(`404 page not found ${error}`))
   }, [])
-  console.log('data',data);
+  // console.log('data',data);
   return (
     <div>
       <Container>
