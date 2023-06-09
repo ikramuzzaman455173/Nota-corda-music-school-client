@@ -2,8 +2,14 @@ import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../Pages/Dashboard/Sidebar';
+import UseAuth from '../Hooks/UseAuth';
+import LoadingSpinner from '../Components/SharedComponents/LoadingSpinner';
 
 const DashboardLayout = () => {
+  const { loading } = UseAuth()
+  if (loading) {
+    return(<LoadingSpinner/>)
+  }
   return (
     <div className='relative min-h-screen md:flex'>
       <Sidebar />
