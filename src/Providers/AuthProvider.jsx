@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
+import axios from "axios";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -53,11 +54,36 @@ const AuthProvider = ({ children }) => {
   }
 
 
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, currentUser => {
+  //     setUser(currentUser)
+  //     console.log('current user', currentUser)
+  //     setLoading(false)
+  //   })
+  //   return () => {
+  //     return unsubscribe()
+  //   }
+  // }, [])
+
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
-      console.log('current user', currentUser)
-      setLoading(false)
+      // console.log('currentUser',currentUser);
+      if (currentUser) {
+        axios.post('http://localhost:4000/jwt', { email: currentUser.email })
+          .then(data => {
+            // console.log(data.data.token);
+            localStorage.setItem('access-token', data.data.token)
+          }).catch(error => {
+            console.log(`Error:`, error.message);
+          })
+          setLoading(false)
+      }
+      else {
+        localStorage.removeItem('access-token')
+        setLoading(false)
+      }
     })
     return () => {
       return unsubscribe()

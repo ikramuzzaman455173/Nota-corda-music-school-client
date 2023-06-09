@@ -10,7 +10,7 @@ const PopularInstructors = () => {
       <Container>
         <InfoText title={'Our Popular Instructors'} />
         <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6'>
-          {allInstructor.slice(0,6).map((singleInstructor, i) => <PopularCard key={i} singleInstructor={singleInstructor} />)}
+          {allInstructor.slice(0,6).map((singleInstructor) => <PopularCard key={singleInstructor._id} singleInstructor={singleInstructor} />)}
         </div>
       </Container>
     </div>

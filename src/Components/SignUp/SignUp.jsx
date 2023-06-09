@@ -95,7 +95,7 @@ const SignUp = () => {
               <input type='file' required   {...register('image', { required: true })} name='image' accept='image/*' />
             </div>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='email' className='block mb-2 text-sm lowercase'>
                 Email address
               </label>
               <input
@@ -122,7 +122,7 @@ const SignUp = () => {
                 })}
                 required
                 placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full normal-case px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
               />
               <PasswordHideShow
                 handleShowPassowrd={handleShowPassowrd}
@@ -155,7 +155,7 @@ const SignUp = () => {
                 })}
                 required
                 placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full normal-case px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
               />
               <PasswordHideShow2 cpasswordshow={cpasswordshow} handleShowConfirmPass={handleShowConfirmPass} />
 

@@ -1,5 +1,4 @@
-{
-  "classes": [
+[
     {
       "class_id": 1,
       "class_name": "Piano",
@@ -13,7 +12,8 @@
       "description": "Learn to play the piano with expert guidance from John Smith in this beginner-level class. No prior experience required.",
       "price": 50,
       "payment":false,
-      "status":"pending"
+      "status":"pending",
+      "isSelect":false
     },
     {
       "class_id": 2,
@@ -28,7 +28,8 @@
       "description": "Take your guitar skills to the next level with Emily Johnson in this intermediate-level class. Perfect for those with some experience.",
       "price": 40,
       "payment":true,
-      "status":"approved"
+      "status":"approved",
+      "isSelect":false
     },
     {
       "class_id": 3,
@@ -43,7 +44,8 @@
       "description": "Enhance your violin techniques and explore advanced repertoire under the guidance of Sarah Davis. This class is suitable for experienced violinists.",
       "price": 60,
       "payment":false,
-      "status":"pending"
+      "status":"pending",
+      "isSelect":false
     },
     {
       "class_id": 4,
@@ -58,7 +60,8 @@
       "description": "Discover the art of singing and improve your vocal skills with Michael Thompson in this intermediate-level class. Suitable for aspiring singers.",
       "price": 45,
       "payment":true,
-      "status":"approved"
+      "status":"approved",
+      "isSelect":false
     },
     {
       "class_id": 5,
@@ -73,7 +76,8 @@
       "description": "Learn the basics of drumming with David Wilson in this beginner-level class. No prior drumming experience required.",
       "price": 55,
       "payment":false,
-      "status":"pending"
+      "status":"pending",
+      "isSelect":false
     },
     {
       "class_id": 6,
@@ -88,7 +92,7 @@
       "description": "Deepen your understanding of music theory concepts and expand your compositional skills with Jennifer Lee in this intermediate-level class.",
       "price": 30,
       "payment":true,
-      "status":"approved"
+      "status":"approved",
+      "isSelect":false
     }
   ]
-}

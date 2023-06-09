@@ -21,8 +21,8 @@ const PopularClasses = () => {
       <Container>
         <InfoText title={'our popular classes'} />
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {firstSixClasses.map((singleClass, i) => (
-            <ClassCard key={i} singleClass={singleClass} />
+          {firstSixClasses.map((singleClass) => (
+            <ClassCard key={singleClass._id} singleClass={singleClass} />
           ))}
         </div>
       </Container>
