@@ -6,6 +6,7 @@ import HomePage from '../Pages/HomePage/HomePage'
 import ErrorPage from '../Components/SharedComponents/ErrorPage'
 import DashboardLayout from '../Layouts/DashboardLayout'
 import SelectClasses from '../Pages/Dashboard/SelectClasses'
+import EnrolledClasses from '../Pages/Dashboard/EnrolledClasses'
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: 'select-classes',
         element:<SelectClasses/>
+      },
+      {
+        path: 'enrolled-classes',
+        element:<EnrolledClasses/>
       },
     ]
   }
