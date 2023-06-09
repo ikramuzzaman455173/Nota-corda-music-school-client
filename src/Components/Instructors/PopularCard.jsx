@@ -36,10 +36,10 @@ const PopularCard = ({ singleInstructor }) => {
 
   return (
     <div
-      className="dark:bg-gradient-to-r border-2 rounded-md dark:from-[#010314] dark:to-[#0f0728]"
+      className="dark:bg-gradient-to-r rounded-md dark:from-[#010314] dark:to-[#0f0728]"
       data-aos="zoom"
     >
-      <div className="p-2 rounded-md shadow-md w-full transform transition-transform duration-300 hover:skew-y-2 cursor-pointer">
+      <div className="p-2 rounded-md border-2 shadow-md w-full transform transition-transform duration-300 hover:skew-y-2 cursor-pointer">
         <img
           src={image}
           alt="instructor image"

@@ -7,6 +7,8 @@ import ErrorPage from '../Components/SharedComponents/ErrorPage'
 import DashboardLayout from '../Layouts/DashboardLayout'
 import SelectClasses from '../Pages/Dashboard/SelectClasses'
 import EnrolledClasses from '../Pages/Dashboard/EnrolledClasses'
+import AllClasses from '../Components/Classes/AllClasses'
+import AllInstructors from '../Components/Instructors/AllInstructors'
 
 
 export const router = createBrowserRouter([
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: '/signUp',
         element:<SignUp/>
+      },
+      {
+        path: '/classes',
+        element:<AllClasses/>
+      },
+      {
+        path: '/instructors',
+        element:<AllInstructors/>
       },
     ],
   },
