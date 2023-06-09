@@ -11,7 +11,9 @@
       "class_level": "Beginner",
       "available_seats": 5,
       "description": "Learn to play the piano with expert guidance from John Smith in this beginner-level class. No prior experience required.",
-      "price": 50
+      "price": 50,
+      "payment":false,
+      "status":"pending"
     },
     {
       "class_id": 2,
@@ -24,7 +26,9 @@
       "class_level": "Intermediate",
       "available_seats": 3,
       "description": "Take your guitar skills to the next level with Emily Johnson in this intermediate-level class. Perfect for those with some experience.",
-      "price": 40
+      "price": 40,
+      "payment":true,
+      "status":"approved"
     },
     {
       "class_id": 3,
@@ -37,7 +41,9 @@
       "class_level": "Advanced",
       "available_seats": 2,
       "description": "Enhance your violin techniques and explore advanced repertoire under the guidance of Sarah Davis. This class is suitable for experienced violinists.",
-      "price": 60
+      "price": 60,
+      "payment":false,
+      "status":"pending"
     },
     {
       "class_id": 4,
@@ -50,7 +56,9 @@
       "class_level": "Intermediate",
       "available_seats": 3,
       "description": "Discover the art of singing and improve your vocal skills with Michael Thompson in this intermediate-level class. Suitable for aspiring singers.",
-      "price": 45
+      "price": 45,
+      "payment":true,
+      "status":"approved"
     },
     {
       "class_id": 5,
@@ -63,7 +71,9 @@
       "class_level": "Beginner",
       "available_seats": 4,
       "description": "Learn the basics of drumming with David Wilson in this beginner-level class. No prior drumming experience required.",
-      "price": 55
+      "price": 55,
+      "payment":false,
+      "status":"pending"
     },
     {
       "class_id": 6,
@@ -76,7 +86,9 @@
       "class_level": "Intermediate",
       "available_seats": 5,
       "description": "Deepen your understanding of music theory concepts and expand your compositional skills with Jennifer Lee in this intermediate-level class.",
-      "price": 30
+      "price": 30,
+      "payment":true,
+      "status":"approved"
     }
   ]
 }
