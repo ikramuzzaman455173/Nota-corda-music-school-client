@@ -1,6 +1,5 @@
 [
     {
-      "class_id": 1,
       "class_name": "Piano",
       "instructor_name": "John Smith",
       "email": "johnsmith@example.com",
@@ -11,12 +10,9 @@
       "available_seats": 5,
       "description": "Learn to play the piano with expert guidance from John Smith in this beginner-level class. No prior experience required.",
       "price": 50,
-      "payment":false,
-      "status":"pending",
-      "isSelect":false
+      "status":"pending"
     },
     {
-      "class_id": 2,
       "class_name": "Guitar",
       "instructor_name": "Emily Johnson",
       "email": "emilyjohnson@example.com",
@@ -27,12 +23,9 @@
       "available_seats": 3,
       "description": "Take your guitar skills to the next level with Emily Johnson in this intermediate-level class. Perfect for those with some experience.",
       "price": 40,
-      "payment":true,
-      "status":"approved",
-      "isSelect":false
+      "status":"approved"
     },
     {
-      "class_id": 3,
       "class_name": "Violin",
       "instructor_name": "Sarah Davis",
       "email": "sarahdavis@example.com",
@@ -43,12 +36,9 @@
       "available_seats": 2,
       "description": "Enhance your violin techniques and explore advanced repertoire under the guidance of Sarah Davis. This class is suitable for experienced violinists.",
       "price": 60,
-      "payment":false,
-      "status":"pending",
-      "isSelect":false
+      "status":"pending"
     },
     {
-      "class_id": 4,
       "class_name": "Singing",
       "instructor_name": "Michael Thompson",
       "email": "michaelthompson@example.com",
@@ -59,12 +49,9 @@
       "available_seats": 3,
       "description": "Discover the art of singing and improve your vocal skills with Michael Thompson in this intermediate-level class. Suitable for aspiring singers.",
       "price": 45,
-      "payment":true,
-      "status":"approved",
-      "isSelect":false
+      "status":"approved"
     },
     {
-      "class_id": 5,
       "class_name": "Drums",
       "instructor_name": "David Wilson",
       "email": "davidwilson@example.com",
@@ -75,12 +62,9 @@
       "available_seats": 4,
       "description": "Learn the basics of drumming with David Wilson in this beginner-level class. No prior drumming experience required.",
       "price": 55,
-      "payment":false,
-      "status":"pending",
-      "isSelect":false
+      "status":"pending"
     },
     {
-      "class_id": 6,
       "class_name": "Music Theory",
       "instructor_name": "Jennifer Lee",
       "email": "jenniferlee@example.com",
@@ -91,8 +75,6 @@
       "available_seats": 5,
       "description": "Deepen your understanding of music theory concepts and expand your compositional skills with Jennifer Lee in this intermediate-level class.",
       "price": 30,
-      "payment":true,
-      "status":"approved",
-      "isSelect":false
+      "status":"approved"
     }
   ]
