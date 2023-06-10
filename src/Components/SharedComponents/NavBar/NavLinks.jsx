@@ -5,6 +5,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import ImgTooltip from '../../ImgTooltip';
 import UseAuth from '../../../Hooks/UseAuth';
 import Switcher from "../../DarkMode/SwithDarkMode";
+import UseInstructor from "../../../Hooks/UserInstructor";
 // import ToggleButton from "../../DarkMode/ToggleSwitch";
 const NavLinks = ({ open }) => {
   const { user, logOut } = UseAuth()
@@ -15,7 +16,8 @@ const NavLinks = ({ open }) => {
     { name: "Classes", link: "/classes" },
   ];
   const location = useLocation();
-
+  const [isInstructor] = UseInstructor()
+  console.log('isInsturctor', isInstructor);
   return (
     <>
       <ul className={`md:flex md:items-center md:pb-0 pb-12 bg-white dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-15' : 'top-[-490px]'}`}>
@@ -26,12 +28,19 @@ const NavLinks = ({ open }) => {
         ))}
         {user && (
           <>
-            <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+            {isInstructor === false && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
               <NavLink
                 to={`/dashboard/select-classes`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
                 Dashboard
               </NavLink>
-            </li>
+            </li>}
+            {isInstructor === true && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+              <NavLink
+                to={`/dashboard/add-class`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
+                Dashboard
+              </NavLink>
+            </li>}
+
             <div className='flex gap-2 items-center md:ml-4 ml-0'>
               <button onClick={logOut} className="login-btn" >Log Out <MdLogout className='w-5 h-5 ml-2 -mr-1' /></button>
               <ImgTooltip />
@@ -51,7 +60,7 @@ const NavLinks = ({ open }) => {
           </>
 
         )}
-        <Switcher/>
+        <Switcher />
       </ul>
     </>
   )

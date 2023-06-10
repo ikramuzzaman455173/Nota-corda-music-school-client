@@ -6,6 +6,9 @@ import { FcSettings } from 'react-icons/fc'
 import UseAuth from '../../Hooks/UseAuth'
 import Logo from '../../Components/SharedComponents/Logo'
 import StudentDashboardNabLinks from './SudentDashboardNabLinks';
+import UseInstructor from '../../Hooks/UserInstructor';
+import InstructorAddClass from './InstructorAddClass';
+import InstructorDashboardNabLinks from './InstructorDashBoardNavLinks';
 const Sidebar = () => {
   const navigate = useNavigate()
   const { user, logOut } = UseAuth()
@@ -18,13 +21,14 @@ const Sidebar = () => {
     logOut()
     navigate('/')
   }
+  const [isInstructor] = UseInstructor()
   return (
     <>
       {/* Small Screen Navbar */}
       <div className='bg-gray-100  text-gray-800 dark:text-white flex justify-between md:hidden dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]'>
         <div>
           <div className='block cursor-pointer p-4 font-bold'>
-            <Logo/>
+            <Logo />
           </div>
         </div>
 
@@ -32,7 +36,7 @@ const Sidebar = () => {
           onClick={handleToggle}
           className='mobile-menu-button p-4 focus:outline-none'
         >
-          {isActive?<Bars3BottomRightIcon className='h-8 w-8 font-semibold' />:<XMarkIcon className='h-8 w-8 semibold'/>}
+          {isActive ? <Bars3BottomRightIcon className='h-8 w-8 font-semibold' /> : <XMarkIcon className='h-8 w-8 semibold' />}
         </button>
       </div>
       {/* Sidebar */}
@@ -71,7 +75,8 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
-              <StudentDashboardNabLinks/>
+              {isInstructor === false &&<StudentDashboardNabLinks />}
+              {isInstructor === true &&<InstructorDashboardNabLinks />}
             </nav>
           </div>
         </div>

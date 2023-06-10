@@ -18,7 +18,7 @@ const EnrolledClasses = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://summer-camp-school-server-two.vercel.app/selectClasses/${id}`, {
+        fetch(`http://localhost:4000/selectClasses/${id}`, {
           method: "DELETE",
           headers: {
             'content-type': 'application/json'

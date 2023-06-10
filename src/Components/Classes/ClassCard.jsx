@@ -30,7 +30,7 @@ const ClassCard = ({ singleClass }) => {
       payment: false,
     };
     if (user && user.email) {
-      fetch('https://summer-camp-school-server-two.vercel.app/selectClasses', {
+      fetch('http://localhost:4000/selectClasses', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

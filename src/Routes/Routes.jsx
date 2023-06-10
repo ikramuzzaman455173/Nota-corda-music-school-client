@@ -12,6 +12,7 @@ import AllInstructors from '../Components/Instructors/AllInstructors'
 import Payment from '../Pages/Dashboard/Payment/Payment'
 import PaymentHistoryPage from '../Pages/Dashboard/PaymentHistoryPage'
 import PrivateRoute from './PrivateRoute'
+import InstructorAddClass from '../Pages/Dashboard/InstructorAddClass'
 
 
 export const router = createBrowserRouter([
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
         path: 'payment-history',
         element:<PaymentHistoryPage/>
       },
+      {
+        path: 'add-class',
+        element:<InstructorAddClass/>
+      }
     ]
   }
 ])
