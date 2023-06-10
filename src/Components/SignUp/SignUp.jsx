@@ -67,13 +67,13 @@ const SignUp = () => {
 
   return (
     <div className='flex justify-center items-center min-h-screen mt-5'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-slate-600 dark:text-white font-medium'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='space-y-6 ng-untouched ng-pristine ng-valid'
+          className='space-y-6'
         >
           <div className='space-y-4'>
             <div>
@@ -84,7 +84,7 @@ const SignUp = () => {
                 type='text'
                 {...register('name', { required: true })}
                 placeholder='Enter Your Name Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-slate-600 dark:text-white font-medium'
                 data-temp-mail-org='0'
               />
             </div>
@@ -95,7 +95,7 @@ const SignUp = () => {
               <input type='file' required   {...register('image', { required: true })} name='image' accept='image/*' />
             </div>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm lowercase'>
+              <label htmlFor='email' className='block mb-2 text-sm capitalize'>
                 Email address
               </label>
               <input
@@ -103,7 +103,7 @@ const SignUp = () => {
                 {...register('email', { required: true })}
                 required
                 placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md normal-case border-gray-300 focus:outline-rose-500 bg-gray-200 text-slate-600 dark:text-white font-medium'
                 data-temp-mail-org='0'
               />
             </div>
@@ -122,7 +122,7 @@ const SignUp = () => {
                 })}
                 required
                 placeholder='*******'
-                className='w-full normal-case px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full normal-case px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-slate-600 dark:text-white font-medium'
               />
               <PasswordHideShow
                 handleShowPassowrd={handleShowPassowrd}
@@ -155,7 +155,7 @@ const SignUp = () => {
                 })}
                 required
                 placeholder='*******'
-                className='w-full normal-case px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full normal-case px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-slate-600 dark:text-white font-medium'
               />
               <PasswordHideShow2 cpasswordshow={cpasswordshow} handleShowConfirmPass={handleShowConfirmPass} />
 

@@ -6,7 +6,8 @@ import UseAuth from '../Hooks/UseAuth';
 import LoadingSpinner from '../Components/SharedComponents/LoadingSpinner';
 
 const DashboardLayout = () => {
-  const { loading } = UseAuth()
+  const {loading} = UseAuth()
+
   if (loading) {
     return(<LoadingSpinner/>)
   }

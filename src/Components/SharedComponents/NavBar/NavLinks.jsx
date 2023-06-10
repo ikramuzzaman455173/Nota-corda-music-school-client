@@ -28,7 +28,7 @@ const NavLinks = ({ open }) => {
           <>
             <li className='md:ml-8 md:my-0 my-7 font-semibold'>
               <NavLink
-                to="/dashboard" className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
+                to={`/dashboard/select-classes`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
                 Dashboard
               </NavLink>
             </li>
