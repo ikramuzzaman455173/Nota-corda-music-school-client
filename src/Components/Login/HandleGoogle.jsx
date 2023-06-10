@@ -15,7 +15,7 @@ const HandleGoogle = () => {
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then(result => {
-        console.log(result.user);
+        // console.log(result.user);
         // current user save for the db
         savedUser(result.user)
         navigate(from,{replace:true})

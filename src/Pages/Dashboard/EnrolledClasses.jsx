@@ -7,7 +7,7 @@ const EnrolledClasses = () => {
   const selectClasses = selectClass.filter(singleClass => singleClass.payment === true);
 
   const handleDeleteSelectClass = (id) => {
-    console.log(`handleDeleteSelectClass`, id)
+    // console.log(`handleDeleteSelectClass`, id)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",

@@ -7,10 +7,10 @@ const PaymentHistoryPage = () => {
   const [payHistory, refetch] = UsePaymentHistory();
   const total = payHistory.reduce((sum, item) => item.price + sum, 0)
 
-  console.log(payHistory);
+  // console.log(payHistory);
 
   const handleDeletePaymentHistory = (id) => {
-    console.log(`handleDeleteSelectClass`, id)
+    // console.log(`handleDeleteSelectClass`, id)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",

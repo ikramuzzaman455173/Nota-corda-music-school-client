@@ -10,7 +10,7 @@ const UsePaymentHistory = () => {
     enabled: !loading && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const response = await axiosSecure(`http://localhost:4000/paymentHistory?email=${user?.email}`)
-      console.log("response from axios",response.data);
+      // console.log("response from axios",response.data);
       return response.data
     },
   })

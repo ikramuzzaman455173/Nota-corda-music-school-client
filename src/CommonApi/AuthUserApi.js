@@ -14,6 +14,6 @@ export const savedUser = user => {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
     }).catch(error=>console.log(`404 page not found ${error}`))
 }

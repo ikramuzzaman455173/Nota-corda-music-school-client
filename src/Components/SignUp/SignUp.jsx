@@ -21,7 +21,7 @@ const SignUp = () => {
   const { register, handleSubmit, formState: { errors }, watch, } = useForm()
 
   const onSubmit = async (data) => {
-    console.log(data, 'data');
+    // console.log(data, 'data');
     try {
       setLoading(true)
       const imageFile = data.image[0]
@@ -40,7 +40,7 @@ const SignUp = () => {
       if (user) {
         await updateUserProfile(data.name, imageUrl)
         setLoading(false)
-        console.log(`Sign Up Successfully !!!`);
+        // console.log(`Sign Up Successfully !!!`);
         toast(`Sign Up Successfully !!!`, { autoClose: 2000 });
         savedUser(data)
         setTimeout(() => {

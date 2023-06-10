@@ -41,7 +41,7 @@ const ClassCard = ({ singleClass }) => {
         .then(data => {
           if (data) {
             refetch();
-            console.log(data)
+            // console.log(data)
             toast('You Are Select The Class !!!',{autoClose:2000})
           }
         })

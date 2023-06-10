@@ -7,11 +7,11 @@ const SelectClasses = () => {
   const [selectClass, refetch] = UseSelectClass()
   const selectClasses = selectClass.filter(singleClass => singleClass.payment === false);
 
-  console.log(`selectClass`, selectClass);
+  // console.log(`selectClass`, selectClass);
   const total = selectClasses.reduce((sum, item) => item.price + sum, 0)
 
     const handleDeleteSelectClass = (id) => {
-      console.log(`handleDeleteSelectClass`, id)
+      // console.log(`handleDeleteSelectClass`, id)
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",

@@ -18,10 +18,10 @@ const Login = () => {
     const form = e.target
     const email = form.email.value
     const password = form.password.value
-    console.log('userDetails:', email, password);
+    // console.log('userDetails:', email, password);
     signIn(email, password)
       .then(result => {
-        console.log(result.user);
+        // console.log(result.user);
         // save user to db
         savedUser(result.user)
         toast('LogIn Account Successfully !!!',{autoClose:2000})

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import UseAuth from '../../../Hooks/UseAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 const CheckOutForm = ({ price, singleSelectClass }) => {
-  console.log('selectClass',price,singleSelectClass);
+  // console.log('selectClass',price,singleSelectClass);
   const { user } = UseAuth()
   const stripe = useStripe()
   const elements = useElements()
@@ -16,7 +16,7 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
   const [transectionId, setTransectionId] = useState('')
   const selectClass = singleSelectClass
   const {_id,selectClassId,class_name,image} = selectClass||{}
-  console.log(selectClass,);
+  // console.log(selectClass,);
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post('/payment', { price })
@@ -84,7 +84,7 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
       axiosSecure.post('/payments', payment)
         .then(res => {
           if (res.data) {
-            console.log(res.data);
+            // console.log(res.data);
             toast('Pay The Payment Successfully !!!', { autoClose: 2000 })
           }
         })
