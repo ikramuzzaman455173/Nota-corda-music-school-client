@@ -6,19 +6,21 @@ import UseAuth from '../../Hooks/UseAuth'
 import HandleGoogle from './HandleGoogle'
 import { savedUser } from "../../CommonApi/AuthUserApi";
 import { toast } from "react-toastify";
+import { useForm } from 'react-hook-form'
+
 // import { savedUser } from '../../CommonApi/Auth'
 const Login = () => {
   const { loading, setLoading, signIn} = UseAuth()
   const navigate = useNavigate()
   const location = useLocation()
-  const from = location.state?.from?.pathname||'/'
+  const from = location.state?.from?.pathname || '/'
+  const { register, handleSubmit, formState: { errors }, watch, } = useForm()
+
   {/* ====const handleSubmit===== */ }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    const email = form.email.value
-    const password = form.password.value
-    // console.log('userDetails:', email, password);
+  const onSubmit = (data) => {
+    const email = data.email
+    const password = data.password
+    console.log(email,password);
     signIn(email, password)
       .then(result => {
         // console.log(result.user);
@@ -49,7 +51,7 @@ const Login = () => {
           </p>
         </div>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           action=''
           className='space-y-6 ng-untouched ng-pristine ng-valid'
         >
@@ -60,8 +62,7 @@ const Login = () => {
               </label>
               <input
                 type='email'
-                name='email'
-                id='email'
+                {...register('email', { required: true })}
                 required
                 placeholder='Enter Your Email Here'
                 className='w-full px-3 py-2 border rounded-md normal-case border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
@@ -76,8 +77,7 @@ const Login = () => {
               </div>
               <input
                 type={passwordshow ? 'text' : 'password'}
-                name='password'
-                id='password'
+                {...register('password', { required: true })}
                 required
                 placeholder='*******'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 normal-case focus:outline-rose-500 bg-gray-200 text-gray-900'
