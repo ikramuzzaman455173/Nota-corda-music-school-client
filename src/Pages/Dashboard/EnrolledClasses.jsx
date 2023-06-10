@@ -1,8 +1,46 @@
 import React from 'react'
 import UseSelectClass from '../../Hooks/UseSelectClass'
+import Swal from 'sweetalert2';
 
 const EnrolledClasses = () => {
-  const [selectClass,refetch] =UseSelectClass()
+  const [selectClass, refetch] = UseSelectClass()
+  const selectClasses = selectClass.filter(singleClass => singleClass.payment === true);
+
+  const handleDeleteSelectClass = (id) => {
+    console.log(`handleDeleteSelectClass`, id)
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:4000/selectClasses/${id}`, {
+          method: "DELETE",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify()
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.deletedCount > 0)
+              // console.log(data)
+              Swal.fire(
+                'Deleted!',
+                'Your Enrolled Class Has Been Deleted.',
+                'success'
+              )
+            refetch()
+          }).catch(error => console.log(`404 page not found ${error.message}`))
+
+      }
+    })
+
+  }
   return (
     <>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are enrolled Total Classes: <span className='text-info dark:text-warning'>0</span></h3>
@@ -38,39 +76,46 @@ const EnrolledClasses = () => {
                   </tr>
                 </thead>
                 <tbody className="text-sm divide-y dark:text-white divide-gray-100">
-                  <tr>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left">1</div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 mr-2 sm:mr-3">
-                          <img
-                            className="rounded-md"
-                            src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg"
-                            width="40"
-                            height="40"
-                            alt="class img"
-                          />
+                  {selectClasses?.map((sClass, i) => {
+                    return (<tr key={i}>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="text-left">{i + 1}</div>
+                      </td>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="w-10 h-10 mr-2 sm:mr-3">
+                            <img
+                              className="rounded-md"
+                              src={sClass.image}
+                              width="40"
+                              height="40"
+                              alt="class img"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left">alexshatov@gmail.com</div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left font-medium text-info dark:text-warning">$2,890.66</div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-lg text-center">begginer</div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-lg text-center">1 hours</div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-lg text-center"><button className='awesome-btn px-10 py-[2px] rounded-full capitalize'>enrolled</button></div>
-                    </td>
-                  </tr>
+                      </td>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="text-left">{sClass.class_name}</div>
+                      </td>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="text-left font-medium text-info dark:text-warning">${sClass.price}</div>
+                      </td>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="text-lg text-center">{sClass.class_level}</div>
+                      </td>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="text-lg text-center">{sClass.class_duration}</div>
+                      </td>
+                      <td className="p-2 whitespace-nowrap">
+                        <div className="text-lg text-center flex gap-10">
+                          <button onClick={() => handleDeleteSelectClass(sClass._id)} className='awesome-btn px-10 py-[2px] rounded-full'>Delete</button>
+                          <button className='awesome-btn px-10 py-[2px] rounded-full'>Enrolled</button>
+
+                        </div>
+                      </td>
+                    </tr>)
+                  })}
+
 
                 </tbody>
               </table>
