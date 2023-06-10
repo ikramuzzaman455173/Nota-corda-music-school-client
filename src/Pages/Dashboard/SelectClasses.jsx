@@ -1,11 +1,14 @@
 import React from 'react'
 import UseSelectClass from '../../Hooks/UseSelectClass'
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const SelectClasses = () => {
   const [selectClass, refetch] = UseSelectClass()
+  const selectClasses = selectClass.filter(singleClass => singleClass.payment === false);
+
   console.log(`selectClass`, selectClass);
-  const total = selectClass.reduce((sum, item) => item.price + sum, 0)
+  const total = selectClasses.reduce((sum, item) => item.price + sum, 0)
 
     const handleDeleteSelectClass = (id) => {
       console.log(`handleDeleteSelectClass`, id)
@@ -41,14 +44,13 @@ const SelectClasses = () => {
         }
       })
 
-
     }
   return (
     <>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>Total Selected Classes Are: <span className='text-info dark:text-warning'>{selectClass.length || 0}</span></h3>
       <div className='flex lg:justify-center  lg:flex-row flex-col lg:gap-[400px] gap-2 items-center text-2xl font-medium font-Pt dark:font-Merienda dark:text-white mb-5 text-slate-500'>
         <h3>All Slect Class Total Amount: $<span className='text-info dark:text-warning'>{total|| 0}</span></h3>
-        <button className='awesome-btn px-10 py-2 rounded-md'>Pay</button>
+        {/* <Link  className='awesome-btn px-10 py-2 rounded-md'>Pay</Link> */}
       </div>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}
@@ -82,7 +84,7 @@ const SelectClasses = () => {
                   </tr>
                 </thead>
                 <tbody className="text-sm divide-y dark:text-white divide-gray-100">
-                  {selectClass?.map((sClass, i) => {
+                  {selectClasses?.map((sClass, i) => {
                     return (<tr key={i}>
                       <td className="p-2 whitespace-nowrap">
                         <div className="text-left">{i+1}</div>
@@ -101,7 +103,7 @@ const SelectClasses = () => {
                         </div>
                       </td>
                       <td className="p-2 whitespace-nowrap">
-                        <div className="text-left">{sClass.instructor_name}</div>
+                        <div className="text-left">{sClass.class_name}</div>
                       </td>
                       <td className="p-2 whitespace-nowrap">
                         <div className="text-left font-medium text-info dark:text-warning">${sClass.price}</div>
@@ -113,7 +115,10 @@ const SelectClasses = () => {
                         <div className="text-lg text-center">{sClass.class_duration}</div>
                       </td>
                       <td className="p-2 whitespace-nowrap">
-                        <div className="text-lg text-center"><button onClick={()=>handleDeleteSelectClass(sClass._id)} className='awesome-btn px-10 py-[2px] rounded-full'>Delete</button></div>
+                        <div className="text-lg text-center flex gap-10">
+                          <button onClick={() => handleDeleteSelectClass(sClass._id)} className='awesome-btn px-10 py-[2px] rounded-full'>Delete</button>
+                          <Link to="/dashboard/payment" state={{price:sClass.price,id:sClass._id}} className='awesome-btn px-10 py-[2px] rounded-md'>pay</Link>
+                        </div>
                       </td>
                     </tr>)
                   })}

@@ -31,4 +31,3 @@ const PopularClasses = () => {
 };
 
 export default PopularClasses;
-
