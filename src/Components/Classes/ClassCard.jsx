@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import UseAuth from '../../Hooks/UseAuth';
-import Swal from 'sweetalert2';
-import { useNavigate, useLocation } from 'react-router-dom';
-import UseSelectClass from '../../Hooks/UseSelectClass';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
+import UseAuth from '../../Hooks/UseAuth';
+import UseSelectClass from '../../Hooks/UseSelectClass';
 
 const ClassCard = ({ singleClass }) => {
   const { user } = UseAuth();
@@ -30,7 +30,7 @@ const ClassCard = ({ singleClass }) => {
       payment: false,
     };
     if (user && user.email) {
-      fetch('http://localhost:4000/selectClasses', {
+      fetch('https://summer-camp-school-server-two.vercel.app/selectClasses', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

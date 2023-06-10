@@ -1,5 +1,4 @@
 // react toastify
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -22,14 +21,13 @@ import { Audio } from 'react-loader-spinner';
 
 
 //React Icons
-import { FaBeer } from 'react-icons/fa';
 
 // react router dom
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import App from './App';
+import './index.css';
 
 const router = createBrowserRouter([
   {
@@ -47,7 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider rout
 // sweeet alert 2
 
 // ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 // CommonJS
 const Swal = require('sweetalert2')
@@ -69,7 +67,7 @@ Swal.fire({
 
 
 // React Helpmet Crete Dynamic Page Title
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider } from 'react-helmet-async';
   <HelmetProvider>
 </HelmetProvider>
 
@@ -80,13 +78,13 @@ import { HelmetProvider } from 'react-helmet-async'
 
 // Initial Setup Axios
 
-import {useEffect } from 'react';
 import axios from 'axios';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UseAuth from './UseAuth';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://summer-camp-school-server-two.vercel.app',
 });
 
 const useAxiosSecure = () => {

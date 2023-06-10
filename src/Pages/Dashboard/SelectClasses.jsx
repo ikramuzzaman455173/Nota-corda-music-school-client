@@ -1,7 +1,7 @@
-import React from 'react'
-import UseSelectClass from '../../Hooks/UseSelectClass'
-import Swal from 'sweetalert2';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import UseSelectClass from '../../Hooks/UseSelectClass';
 
 const SelectClasses = () => {
   const [selectClass, refetch] = UseSelectClass()
@@ -22,7 +22,7 @@ const SelectClasses = () => {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:4000/selectClasses/${id}`, {
+          fetch(`https://summer-camp-school-server-two.vercel.app/selectClasses/${id}`, {
             method: "DELETE",
             headers: {
               'content-type': 'application/json'
