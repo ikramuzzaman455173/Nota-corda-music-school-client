@@ -13,6 +13,8 @@ import Payment from '../Pages/Dashboard/Payment/Payment'
 import PaymentHistoryPage from '../Pages/Dashboard/PaymentHistoryPage'
 import PrivateRoute from './PrivateRoute'
 import InstructorAddClass from '../Pages/Dashboard/InstructorAddClass'
+import InstructorMyClasses from '../Pages/Dashboard/InstructorMyClasses'
+import InstructorRoute from './InstructorRoute'
 
 
 export const router = createBrowserRouter([
@@ -66,9 +68,12 @@ export const router = createBrowserRouter([
       },
       {
         path: 'add-class',
-        element:<InstructorAddClass/>
+        element:<InstructorRoute><InstructorAddClass/></InstructorRoute>
+      },
+      {
+        path: 'my-class',
+        element:<InstructorRoute><InstructorMyClasses/></InstructorRoute>
       }
     ]
   }
 ])
-

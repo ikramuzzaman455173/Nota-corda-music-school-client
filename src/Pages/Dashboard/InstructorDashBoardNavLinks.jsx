@@ -27,7 +27,7 @@ const InstructorDashboardNabLinks = () => {
       </NavLink>
 
       <NavLink
-        to='enrolled-classes'
+        to='my-class'
         className={({ isActive }) =>
           `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
           }`
