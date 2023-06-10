@@ -28,7 +28,6 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
   }, [price, axiosSecure])
 
 
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (!stripe || !elements) {
