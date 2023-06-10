@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import UseAuth from '../../Hooks/UseAuth';
 import UseSelectClass from '../../Hooks/UseSelectClass';
+import UseInstructor from '../../Hooks/UserInstructor';
 
 const ClassCard = ({ singleClass }) => {
   const { user } = UseAuth();
@@ -14,7 +15,7 @@ const ClassCard = ({ singleClass }) => {
   const location = useLocation();
   const [, refetch] = UseSelectClass();
   const [isSelectDisabled, setIsSelectDisabled] = useState(false);
-
+  const [isInstructor] = UseInstructor()
 
   const handleSelectClass = (id) => {
     const SelectClassInfo = {
@@ -73,7 +74,7 @@ const ClassCard = ({ singleClass }) => {
     setIsSelectDisabled(
       available_seats === 0 ||
       user?.isAdmin ||
-      user?.isInstructor
+      isInstructor
     );
   }, [available_seats, user, _id]);
 
@@ -116,7 +117,7 @@ const ClassCard = ({ singleClass }) => {
 
       <button
         onClick={() => handleSelectClass(_id)}
-        className={`awesome-btn text-center p-2 flex justify-center items-center rounded-md my-5 cursor-pointer w-3/4 mx-auto text-green-500 font-bold ${isSelectDisabled ? 'opacity-50 cursor-not-allowed' : ''
+        className={`awesome-btn text-center p-2 flex justify-center items-center rounded-md my-5 cursor-pointer w-3/4 mx-auto text-green-500 font-bold ${isSelectDisabled ? 'opacity-50 cursor-no-drop' : ''
           }`}
         disabled={isSelectDisabled}
       >

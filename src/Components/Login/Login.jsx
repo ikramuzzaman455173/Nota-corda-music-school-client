@@ -14,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
-  const { register, handleSubmit, formState: { errors }, watch, } = useForm()
+  const { register, handleSubmit } = useForm()
 
   {/* ====const handleSubmit===== */ }
   const onSubmit = (data) => {
