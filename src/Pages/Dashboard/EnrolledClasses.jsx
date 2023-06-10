@@ -1,6 +1,8 @@
 import React from 'react'
+import UseSelectClass from '../../Hooks/UseSelectClass'
 
 const EnrolledClasses = () => {
+  const [selectClass,refetch] =UseSelectClass()
   return (
     <>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are enrolled Total Classes: <span className='text-info dark:text-warning'>0</span></h3>

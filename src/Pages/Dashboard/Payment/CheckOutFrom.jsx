@@ -83,16 +83,17 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
       }
       axiosSecure.post('/payments', payment)
         .then(res => {
-          if (res.data.insertResult.modifiedCount) {
-            // console.log(res.data);
+          if (res.data) {
+            console.log(res.data);
             toast('Pay The Payment Successfully !!!', { autoClose: 2000 })
           }
         })
     }
+    event.target.reset()
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='my-60 '>
+      <form onSubmit={handleSubmit} className='lg:mx-20 border-2 p-5 rounded-md lg:w-[768px] md:w-[500px] sm:w-[450px] w-[400px] relative mx-auto bg-white text-slate-600 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]'>
         <CardElement
           options={{
             style: {
@@ -109,12 +110,12 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
             },
           }}
         />
-        <button type="submit" className="btn mt-5 px-10 text-3xl" disabled={!stripe || !clientSecret || processing}>
+        <button type="submit" className="btn mt-5 px-10 text-3xl bg-info text-white dark:bg-warning dark:hover:bg-info hover:bg-warning" disabled={!stripe || !clientSecret || processing}>
           Pay
         </button>
       </form>
-      {cardError && <p className='text-2xl text-red-600'>{cardError}</p>}
-      {transectionId && <p className='text-2xl text-green-600'>Transection Complete with transectionId: {transectionId}</p>}
+      {cardError && <p className='text-2xl text-red-600 text-center mt-10'>{cardError}</p>}
+      {transectionId && <p className='text-2xl dark:text-white text-slate-500 text-center mt-10'>Transection Complete with transectionId: <span className='dark:text-warning text-info'>{transectionId}</span></p>}
     </div>
   )
 }
