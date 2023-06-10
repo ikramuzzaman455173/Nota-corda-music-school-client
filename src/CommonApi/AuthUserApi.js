@@ -5,8 +5,8 @@ export const savedUser = user => {
     name: user.name||user.displayName,
     role:'user'
   }
-  fetch(`http://localhost:4000/users/${user?.email}`, {
-    method: 'PUT',
+  fetch(`http://localhost:4000/users`, {
+    method: 'POST',
     headers: {
       'content-type':'application/json'
     },
