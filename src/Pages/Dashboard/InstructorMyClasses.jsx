@@ -1,12 +1,12 @@
-import moment from 'moment';
 import React from 'react';
 import Swal from 'sweetalert2';
 import UseMyClass from '../../Hooks/UseMyClasses';
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const InstructorMyClasses = () => {
   const [myClass, refetch] = UseMyClass();
-
+  const [axiosSecure] = useAxiosSecure()
   const handleDeleteMyClass = (id) => {
     // console.log(`handleDeleteSelectClass`, id)
     Swal.fire({
@@ -19,20 +19,13 @@ const InstructorMyClasses = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/allClass/${id}`, {
-          method: "DELETE",
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify()
-        })
-          .then(response => response.json())
+        axiosSecure.delete(`/allClass/${id}`)
           .then(data => {
-            if (data.deletedCount > 0)
+            if (data.data.deletedCount > 0)
               // console.log(data)
               Swal.fire(
                 'Deleted!',
-                'Your 1 iClassment history Has Been Deleted.',
+                'Your Own Class Has Been Deleted.',
                 'success'
               )
             refetch()
