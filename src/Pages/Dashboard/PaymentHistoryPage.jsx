@@ -83,7 +83,7 @@ const PaymentHistoryPage = () => {
                 </thead>
                 <tbody className="text-sm divide-y dark:text-white divide-gray-100 text-slate-500 font-medium">
                   {payHistory?.map((pay, i) => {
-                    const formattedDate = moment(pay.date).format('MMMM DD, YYYY, h:mm');
+                    const formattedDate = moment(pay.date).format('MMMM DD, YYYY, h:mm a');
                     return (
                       <tr key={pay._id}>
                         <td className="p-2 whitespace-nowrap">

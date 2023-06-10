@@ -4,6 +4,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { toast } from 'react-toastify';
 import UseAuth from '../../../Hooks/UseAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
 const CheckOutForm = ({ price, singleSelectClass }) => {
   // console.log('selectClass',price,singleSelectClass);
   const { user } = UseAuth()
@@ -15,7 +16,8 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
   const [processing, setProcessing] = useState(false)
   const [transectionId, setTransectionId] = useState('')
   const selectClass = singleSelectClass
-  const {_id,selectClassId,class_name,image} = selectClass||{}
+  const { _id, selectClassId, class_name, image } = selectClass || {}
+  const navigate = useNavigate()
   // console.log(selectClass,);
   useEffect(() => {
     if (price > 0) {
@@ -86,10 +88,14 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
           if (res.data) {
             // console.log(res.data);
             toast('Pay The Payment Successfully !!!', { autoClose: 2000 })
+            setTimeout(() => {
+              navigate('/dashboard/payment-history')
+            }, 3000);
+            event.target.reset()
           }
         })
     }
-    event.target.reset()
+
   }
   return (
     <div className='my-60 '>
@@ -110,12 +116,12 @@ const CheckOutForm = ({ price, singleSelectClass }) => {
             },
           }}
         />
-        <button type="submit" className="btn mt-5 px-10 text-3xl bg-info text-white dark:bg-warning dark:hover:bg-info hover:bg-warning" disabled={!stripe || !clientSecret || processing}>
+        <button type="submit" className="btn mt-5 px-10 text-3xl bg-info text-white dark:bg-warning dark:hover:bg-info hover:bg-warning font-Pt dark:font-Merienda" disabled={!stripe || !clientSecret || processing}>
           Pay
         </button>
       </form>
-      {cardError && <p className='text-2xl text-red-600 text-center mt-10'>{cardError}</p>}
-      {transectionId && <p className='text-2xl dark:text-white text-slate-500 text-center mt-10'>Transection Complete with transectionId: <span className='dark:text-warning text-info'>{transectionId}</span></p>}
+      {cardError && <p className='text-2xl text-red-600 text-center mt-10 font-Pt dark:font-Merienda lg:text-left'>{cardError}</p>}
+      {transectionId && <p className='text-2xl dark:text-white text-slate-500 text-center mt-10 font-Pt dark:font-Merienda lg:text-left'>Transection Complete with transectionId: <span className='dark:text-warning text-info'>{transectionId}</span></p>}
     </div>
   )
 }

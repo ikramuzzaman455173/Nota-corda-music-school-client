@@ -11,6 +11,7 @@ import AllClasses from '../Components/Classes/AllClasses'
 import AllInstructors from '../Components/Instructors/AllInstructors'
 import Payment from '../Pages/Dashboard/Payment/Payment'
 import PaymentHistoryPage from '../Pages/Dashboard/PaymentHistoryPage'
+import PrivateRoute from './PrivateRoute'
 
 
 export const router = createBrowserRouter([
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <DashboardLayout />,
+    element:<PrivateRoute><DashboardLayout /></PrivateRoute>,
     errorElement: <ErrorPage />,
     children: [
       {

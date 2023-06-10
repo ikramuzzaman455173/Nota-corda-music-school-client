@@ -40,18 +40,6 @@ const StudentDashboardNabLinks = () => {
       </NavLink>
 
         <NavLink
-          to='payment'
-          className={({ isActive }) =>
-            `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
-            }`
-          }
-        >
-          <FaRegCreditCard className='w-5 h-5' />
-
-          <span className='mx-4 tracking-wider font-Pt dark:font-Merienda font-bold'>payment page</span>
-      </NavLink>
-
-        <NavLink
           to='payment-history'
           className={({ isActive }) =>
             `d-nav-link ${isActive ? 'bg-warning dark:bg-info  text-gray-700 dark:text-white' : 'text-gray-600 dark:text-white'
