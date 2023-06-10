@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -15,7 +14,6 @@ const ClassCard = ({ singleClass }) => {
   const location = useLocation();
   const [, refetch] = UseSelectClass();
   const [isSelectDisabled, setIsSelectDisabled] = useState(false);
-  const [selectedClassIds, setSelectedClassIds] = useState([]);
 
 
   const handleSelectClass = (id) => {
@@ -43,8 +41,7 @@ const ClassCard = ({ singleClass }) => {
         .then(data => {
           if (data) {
             refetch();
-            console.log(data);
-            setSelectedClassIds((prevIds) => [...prevIds, id]);
+            console.log(data)
             toast('You Are Select The Class !!!',{autoClose:2000})
           }
         })
@@ -76,22 +73,9 @@ const ClassCard = ({ singleClass }) => {
     setIsSelectDisabled(
       available_seats === 0 ||
       user?.isAdmin ||
-      user?.isInstructor ||
-      selectedClassIds.includes(_id)
+      user?.isInstructor
     );
-  }, [available_seats, user, _id, selectedClassIds]);
-
-
-  useEffect(() => {
-    localStorage.setItem('selectedClassIds', JSON.stringify(selectedClassIds));
-  }, [selectedClassIds]);
-
-  useEffect(() => {
-    const storedClassIds = localStorage.getItem('selectedClassIds');
-    if (storedClassIds) {
-      setSelectedClassIds(JSON.parse(storedClassIds));
-    }
-  }, []);
+  }, [available_seats, user, _id]);
 
   const cardClassName = `overflow-hidden shadow-md p-2 border-2 rounded-md dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]  cursor-pointer group ${available_seats === 0 ? 'bg-red-200' : ''
     }`;

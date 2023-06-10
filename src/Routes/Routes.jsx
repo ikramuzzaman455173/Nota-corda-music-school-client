@@ -10,6 +10,7 @@ import EnrolledClasses from '../Pages/Dashboard/EnrolledClasses'
 import AllClasses from '../Components/Classes/AllClasses'
 import AllInstructors from '../Components/Instructors/AllInstructors'
 import Payment from '../Pages/Dashboard/Payment/Payment'
+import PaymentHistoryPage from '../Pages/Dashboard/PaymentHistoryPage'
 
 
 export const router = createBrowserRouter([
@@ -56,7 +57,11 @@ export const router = createBrowserRouter([
       {
         path: 'payment',
         element:<Payment/>
-      }
+      },
+      {
+        path: 'payment-history',
+        element:<PaymentHistoryPage/>
+      },
     ]
   }
 ])
