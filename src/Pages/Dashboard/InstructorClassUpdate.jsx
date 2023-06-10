@@ -1,24 +1,29 @@
 import React from 'react'
-import UseAuth from '../../Hooks/UseAuth'
-import DashboardInfoText from './DashboardInfoText'
-import { toast } from "react-toastify";
+import { useLoaderData, useNavigate } from 'react-router-dom'
+import DashboardInfoText from './DashboardInfoText';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form'
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
-const InstructorAddClass = () => {
 
-  const { user } = UseAuth()
-  const { register, handleSubmit, reset } = useForm()
+const InstructorClassUpdate = () => {
   const [axiosSecure] = useAxiosSecure()
+  const data = useLoaderData()
+  const navigate = useNavigate()
+  const { register, handleSubmit } = useForm()
+  console.log('data', data);
+  const { class_name, image, available_seats, class_duration, class_level, price, status, students, email, instructor_name,description,_id} = data || {}
   const onSubmit = (data) => {
     console.log(`data`, data);
     const { class_name, image, available_seats, class_level, class_duration, price, description } = data || {}
-    const newClass = { class_name, image, available_seats:parseInt(available_seats), class_level, class_duration, price: parseInt(price), description, instructor_name: user.displayName, email: user.email, status: 'pending',students:0}
-    console.log(newClass);
-    axiosSecure.post('/allClass', newClass)
+    const updateClass = { class_name, image, available_seats:parseInt(available_seats), class_level, class_duration, price: parseInt(price), description, instructor_name,email, status,students}
+    console.log(updateClass);
+    axiosSecure.put(`/allClass/${_id}`, updateClass)
     .then(result => {
-      if (result.data.insertedId) {
-        toast('New Class Added Successfully !!!', { autoClose: 2000 })
-        reset()
+      if (result.data.modifiedCount > 0) {
+        toast('Update Classes Data Successfully !!!', { autoClose: 2000 })
+        setTimeout(() => {
+          navigate('/dashboard/my-class')
+        }, 3000);
           }
           }).catch(error => {
             console.log(`Error:`,error.message);
@@ -28,7 +33,7 @@ const InstructorAddClass = () => {
     <>
       <div>
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-md bg-slate-100 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] text-info dark:text-warning mx-auto my-20 border-2 p-4 rounded-md shadow-md">
-          <DashboardInfoText title={'Add New Class'} />
+          <DashboardInfoText title={'Update Class'} />
           <div className='grid md:grid-cols-2 grid-cols-1 w-full gap-4'>
             <div className="mb-4">
               <label htmlFor="name" className="block mb-1 font-medium">
@@ -40,7 +45,7 @@ const InstructorAddClass = () => {
                 required
                 className="form-input dark:text-white"
                 disabled
-                defaultValue={user.displayName}
+                defaultValue={instructor_name}
               />
             </div>
             <div className="mb-4">
@@ -53,7 +58,7 @@ const InstructorAddClass = () => {
                 required
                 className="form-input lowercase dark:text-white"
                 disabled
-                defaultValue={user.email}
+                defaultValue={email}
               />
             </div>
 
@@ -63,10 +68,11 @@ const InstructorAddClass = () => {
               </label>
               <input
                 type="text"
-                {...register('class_name', { required:false })}
+                {...register('class_name', { required: false })}
                 placeholder="Enter class Name"
                 required
                 className="form-input"
+                defaultValue={class_name}
               />
             </div>
 
@@ -76,10 +82,11 @@ const InstructorAddClass = () => {
               </label>
               <input
                 type="text"
-                {...register('image', { required:false })}
+                {...register('image', { required: false })}
                 placeholder="class Photo Url"
                 required
                 className="form-input"
+                defaultValue={image}
               />
             </div>
 
@@ -89,11 +96,11 @@ const InstructorAddClass = () => {
               </label>
               <input
                 type="number"
-                {...register('price', { required:false })}
+                {...register('price', { required: false })}
                 placeholder="Class Price"
                 required
                 className="form-input"
-
+                defaultValue={price}
               />
             </div>
 
@@ -103,10 +110,11 @@ const InstructorAddClass = () => {
               </label>
               <input
                 type="number"
-                {...register('available_seats', { required:false })}
+                {...register('available_seats', { required: false })}
                 placeholder="Available Seats"
                 required
                 className="form-input"
+                defaultValue={available_seats}
               />
             </div>
 
@@ -116,10 +124,11 @@ const InstructorAddClass = () => {
               </label>
               <input
                 type="text"
-                {...register('class_duration', { required:false })}
+                {...register('class_duration', { required: false })}
                 placeholder="Class durations"
                 required
                 className="form-input"
+                defaultValue={class_duration}
               />
             </div>
 
@@ -127,7 +136,7 @@ const InstructorAddClass = () => {
               <label htmlFor="category" className="block mb-1 font-medium">
                 Select a category:*
               </label>
-              <select {...register('class_level', { required:false })} required className="form-input">
+              <select {...register('class_level', { required: false })} required className="form-input" defaultValue={class_level}>
                 <option value=""> Select a Class Label category:* </option>
                 <option value="Begginer">Begginer</option>
                 <option value="Intermidiate">Intermidiate</option>
@@ -141,8 +150,8 @@ const InstructorAddClass = () => {
             <label htmlFor="textarea" className="block fon-medium mb-2">
               Class Details Description*
             </label>
-            <textarea required {...register('description', { required:false })}
-              className="form-input"  placeholder='class description...'
+            <textarea required {...register('description', { required: false })}
+              className="form-input" placeholder='class description...' defaultValue={description}
             />
           </div>
 
@@ -150,7 +159,7 @@ const InstructorAddClass = () => {
             type="submit"
             className="block w-full px-4 py-2 font-bold awesome-btn rounded-md"
           >
-            Add new class
+            update class
           </button>
         </form>
       </div>
@@ -158,4 +167,4 @@ const InstructorAddClass = () => {
   )
 }
 
-export default InstructorAddClass
+export default InstructorClassUpdate

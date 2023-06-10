@@ -2,45 +2,47 @@ import moment from 'moment';
 import React from 'react';
 import Swal from 'sweetalert2';
 import UseMyClass from '../../Hooks/UseMyClasses';
+import { Link } from 'react-router-dom';
 
 const InstructorMyClasses = () => {
   const [myClass, refetch] = UseMyClass();
 
-  // const handleDeleteiClassmentHistory = (id) => {
-  //   // console.log(`handleDeleteSelectClass`, id)
-  //   Swal.fire({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!'
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       fetch(`http://localhost:4000/iClassHistory/${id}`, {
-  //         method: "DELETE",
-  //         headers: {
-  //           'content-type': 'application/json'
-  //         },
-  //         body: JSON.stringify()
-  //       })
-  //         .then(response => response.json())
-  //         .then(data => {
-  //           if (data.deletedCount > 0)
-  //             // console.log(data)
-  //             Swal.fire(
-  //               'Deleted!',
-  //               'Your 1 iClassment history Has Been Deleted.',
-  //               'success'
-  //             )
-  //           refetch()
-  //         }).catch(error => console.log(`404 page not found ${error.message}`))
+  const handleDeleteMyClass = (id) => {
+    // console.log(`handleDeleteSelectClass`, id)
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:4000/allClass/${id}`, {
+          method: "DELETE",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify()
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.deletedCount > 0)
+              // console.log(data)
+              Swal.fire(
+                'Deleted!',
+                'Your 1 iClassment history Has Been Deleted.',
+                'success'
+              )
+            refetch()
+          }).catch(error => console.log(`404 page not found ${error.message}`))
 
-  //     }
-  //   })
+      }
+    })
 
-  // }
+  }
+
   return (
     <div>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are total classes add: <span className='text-info dark:text-warning'>{myClass.length||0}</span></h3>
@@ -118,12 +120,12 @@ const InstructorMyClasses = () => {
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center">
-                          <button onClick={() => handleDeleteiClassmentHistory(iClass._id)} className='awesome-btn px-10 py-[2px] rounded-full'>Update </button>
+                          <Link to={`/dashboard/instructorClassUpdate/${iClass._id}`} className='awesome-btn px-10 py-[2px] rounded-full'>Update </Link>
                           </div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center flex gap-10">
-                            <button onClick={() => handleDeleteiClassmentHistory(iClass._id)} className='awesome-btn px-10 py-[2px] rounded-full'>Delete</button>
+                            <button onClick={() => handleDeleteMyClass(iClass._id)} className='awesome-btn px-10 py-[2px] rounded-full'>Delete</button>
                           </div>
                         </td>
                       </tr>

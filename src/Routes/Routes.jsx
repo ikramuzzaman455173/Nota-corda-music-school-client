@@ -15,6 +15,7 @@ import PrivateRoute from './PrivateRoute'
 import InstructorAddClass from '../Pages/Dashboard/InstructorAddClass'
 import InstructorMyClasses from '../Pages/Dashboard/InstructorMyClasses'
 import InstructorRoute from './InstructorRoute'
+import InstructorClassUpdate from '../Pages/Dashboard/InstructorClassUpdate'
 
 
 export const router = createBrowserRouter([
@@ -73,6 +74,11 @@ export const router = createBrowserRouter([
       {
         path: 'my-class',
         element:<InstructorRoute><InstructorMyClasses/></InstructorRoute>
+      },
+      {
+        path: 'instructorClassUpdate/:id',
+        element: <InstructorClassUpdate />,
+        loader: ({ params }) => fetch(`http://localhost:4000/allClass/${params.id}`)
       }
     ]
   }
