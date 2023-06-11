@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import UseAdmin from '../../Hooks/UseAdmin';
 import UseAuth from '../../Hooks/UseAuth';
 import UseSelectClass from '../../Hooks/UseSelectClass';
 import UseInstructor from '../../Hooks/UserInstructor';
-import UseAdmin from '../../Hooks/UseAdmin';
 
 const ClassCard = ({ singleClass }) => {
   const { user } = UseAuth();
@@ -33,7 +33,7 @@ const ClassCard = ({ singleClass }) => {
       students
     };
     if (user && user.email) {
-      fetch('http://localhost:4000/selectClasses', {
+      fetch('https://summer-camp-school-server-two.vercel.app/selectClasses', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

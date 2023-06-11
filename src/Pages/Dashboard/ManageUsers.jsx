@@ -4,7 +4,6 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaUserShield } from 'react-icons/fa';
 import { RiUserStarFill } from 'react-icons/ri';
-import { toast } from 'react-toastify';
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure()
@@ -14,8 +13,7 @@ const ManageUsers = () => {
   })
   // console.log('users', users);
 
-  const handleDeleteUser = (id) => {
-    // console.log(`handleDeleteSelectClass`, id)
+  const handleDeleteUser = (user) => {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -26,7 +24,7 @@ const ManageUsers = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/users/${id}`)
+        axiosSecure.delete(`/users/${user._id}`)
           .then(data => {
             if (data.data.deletedCount > 0)
               // console.log(data)
@@ -175,7 +173,7 @@ const ManageUsers = () => {
                           <div className="text-lg text-center flex gap-10">
                             <button disabled={admin} onClick={() => handleUpdateRoleAdmin(user)} className={`px-10 py-[5px] border-2 flex items-center gap-2  bg-info text-white hover:bg-warning rounded-md ${admin?'opacity-50 cursor-no-drop' : ''}`}>Make Admin <FaUserShield className='text-xl' /></button>
                             <button disabled={instructor||user.mainAdmin==='admin'} onClick={() => handleUpdateRoleInstructor(user)} className={`px-10 py-[5px] border-2 flex items-center gap-2  bg-info text-white hover:bg-warning rounded-md ${instructor||user.mainAdmin==='admin'?'opacity-50 cursor-no-drop' : ''}`}>make instructor <RiUserStarFill className='text-xl' /></button>
-                            <button disabled={user.mainAdmin==='admin'} onClick={() => handleDeleteUser(user._id)} className={`awesome-btn px-10 py-[2px] rounded-full ${user.mainAdmin==='admin'?'opacity-50 cursor-no-drop' : ''}`}>Delete</button>
+                            <button disabled={user.mainAdmin==='admin'} onClick={() => handleDeleteUser(user)} className={`awesome-btn px-10 py-[2px] rounded-full ${user.mainAdmin==='admin'?'opacity-50 cursor-no-drop' : ''}`}>Delete</button>
                           </div>
                         </td>
                       </tr>

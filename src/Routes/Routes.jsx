@@ -1,26 +1,26 @@
 import { createBrowserRouter } from 'react-router-dom'
-import MainPage from '../Layouts/MainPage'
-import Login from '../Components/Login/Login'
-import SignUp from '../Components/SignUp/SignUp'
-import HomePage from '../Pages/HomePage/HomePage'
-import ErrorPage from '../Components/SharedComponents/ErrorPage'
-import DashboardLayout from '../Layouts/DashboardLayout'
-import SelectClasses from '../Pages/Dashboard/SelectClasses'
-import EnrolledClasses from '../Pages/Dashboard/EnrolledClasses'
 import AllClasses from '../Components/Classes/AllClasses'
 import AllInstructors from '../Components/Instructors/AllInstructors'
-import Payment from '../Pages/Dashboard/Payment/Payment'
-import PaymentHistoryPage from '../Pages/Dashboard/PaymentHistoryPage'
-import PrivateRoute from './PrivateRoute'
+import Login from '../Components/Login/Login'
+import ErrorPage from '../Components/SharedComponents/ErrorPage'
+import SignUp from '../Components/SignUp/SignUp'
+import DashboardLayout from '../Layouts/DashboardLayout'
+import MainPage from '../Layouts/MainPage'
+import EnrolledClasses from '../Pages/Dashboard/EnrolledClasses'
 import InstructorAddClass from '../Pages/Dashboard/InstructorAddClass'
-import InstructorMyClasses from '../Pages/Dashboard/InstructorMyClasses'
-import InstructorRoute from './InstructorRoute'
+import InstructorClassFeedback from '../Pages/Dashboard/InstructorClassFeedback'
 import InstructorClassUpdate from '../Pages/Dashboard/InstructorClassUpdate'
-import AdminRoute from './AdminRoute'
+import InstructorMyClasses from '../Pages/Dashboard/InstructorMyClasses'
 import ManageClasses from '../Pages/Dashboard/ManageClasses'
 import ManageUsers from '../Pages/Dashboard/ManageUsers'
+import Payment from '../Pages/Dashboard/Payment/Payment'
+import PaymentHistoryPage from '../Pages/Dashboard/PaymentHistoryPage'
+import SelectClasses from '../Pages/Dashboard/SelectClasses'
+import HomePage from '../Pages/HomePage/HomePage'
+import AdminRoute from './AdminRoute'
+import InstructorRoute from './InstructorRoute'
+import PrivateRoute from './PrivateRoute'
 import StudentRoute from './StudentRoute'
-import InstructorClassFeedback from '../Pages/Dashboard/InstructorClassFeedback'
 
 
 export const router = createBrowserRouter([
@@ -83,7 +83,7 @@ export const router = createBrowserRouter([
       {
         path: 'instructorClassUpdate/:id',
         element:<InstructorRoute><InstructorClassUpdate /></InstructorRoute>,
-        loader: ({ params }) => fetch(`http://localhost:4000/allClass/${params.id}`)
+        loader: ({ params }) => fetch(`https://summer-camp-school-server-two.vercel.app/allClass/${params.id}`)
       },
       {
         path: 'manage-classes',
@@ -96,7 +96,7 @@ export const router = createBrowserRouter([
       {
         path: 'class-feedback/:id',
         element: <AdminRoute><InstructorClassFeedback /></AdminRoute>,
-        loader: ({ params }) => fetch(`http://localhost:4000/allClass/${params.id}`)
+        loader: ({ params }) => fetch(`https://summer-camp-school-server-two.vercel.app/allClass/${params.id}`)
       }
     ]
   }

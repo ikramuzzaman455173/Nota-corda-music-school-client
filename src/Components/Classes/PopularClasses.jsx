@@ -1,12 +1,12 @@
-import {useState,useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import Container from '../SharedComponents/Container';
-import ClassCard from './ClassCard';
 import InfoText from '../SharedComponents/InfoText';
+import ClassCard from './ClassCard';
 
 const PopularClasses = () => {
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch('http://localhost:4000/PopularClasses')
+    fetch('https://summer-camp-school-server-two.vercel.app/PopularClasses')
       .then(response => response.json())
       .then(data => {
         console.log(data)
