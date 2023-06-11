@@ -6,6 +6,7 @@ import ImgTooltip from '../../ImgTooltip';
 import UseAuth from '../../../Hooks/UseAuth';
 import Switcher from "../../DarkMode/SwithDarkMode";
 import UseInstructor from "../../../Hooks/UserInstructor";
+import UseAdmin from "../../../Hooks/UseAdmin";
 // import ToggleButton from "../../DarkMode/ToggleSwitch";
 const NavLinks = ({ open }) => {
   const { user, logOut } = UseAuth()
@@ -17,6 +18,8 @@ const NavLinks = ({ open }) => {
   ];
   const location = useLocation();
   const [isInstructor] = UseInstructor()
+  const [isAdmin] = UseAdmin()
+  console.log('isAdmin',isAdmin);
   // console.log('isInsturctor', isInstructor);
   return (
     <>
@@ -28,7 +31,7 @@ const NavLinks = ({ open }) => {
         ))}
         {user && (
           <>
-            {isInstructor === false && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+            {isInstructor === false || isAdmin === false && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
               <NavLink
                 to={`/dashboard/select-classes`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
                 Dashboard
@@ -37,6 +40,13 @@ const NavLinks = ({ open }) => {
             {isInstructor === true && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
               <NavLink
                 to={`/dashboard/add-class`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
+                Dashboard
+              </NavLink>
+            </li>}
+
+            {isAdmin === true && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+              <NavLink
+                to={`/dashboard/manage-classes`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
                 Dashboard
               </NavLink>
             </li>}

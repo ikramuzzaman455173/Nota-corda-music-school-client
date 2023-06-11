@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import UseAuth from '../../Hooks/UseAuth';
 import UseSelectClass from '../../Hooks/UseSelectClass';
 import UseInstructor from '../../Hooks/UserInstructor';
+import UseAdmin from '../../Hooks/UseAdmin';
 
 const ClassCard = ({ singleClass }) => {
   const { user } = UseAuth();
@@ -16,7 +17,7 @@ const ClassCard = ({ singleClass }) => {
   const [, refetch] = UseSelectClass();
   const [isSelectDisabled, setIsSelectDisabled] = useState(false);
   const [isInstructor] = UseInstructor()
-
+  const [isAdmin] = UseAdmin()
   const handleSelectClass = (id) => {
     const SelectClassInfo = {
       selectClassId: id,
@@ -43,7 +44,7 @@ const ClassCard = ({ singleClass }) => {
           if (data) {
             refetch();
             // console.log(data)
-            toast('You Are Select The Class !!!',{autoClose:2000})
+            toast('You Are Select The Class !!!', { autoClose: 2000 })
           }
         })
         .catch(error => console.log(`404 page not found ${error.message}`));
@@ -67,15 +68,8 @@ const ClassCard = ({ singleClass }) => {
     AOS.init();
   }, []);
 
-  // useEffect(() => {
-  //   setIsSelectDisabled(available_seats === 0 || user?.isAdmin || user?.isInstructor);
-  // }, [available_seats, user]);
   useEffect(() => {
-    setIsSelectDisabled(
-      available_seats === 0 ||
-      user?.isAdmin ||
-      isInstructor
-    );
+    setIsSelectDisabled(available_seats === 0 || isAdmin || isInstructor);
   }, [available_seats, user, _id]);
 
   const cardClassName = `overflow-hidden shadow-md p-2 border-2 rounded-md dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]  cursor-pointer group ${available_seats === 0 ? 'bg-red-200' : ''
@@ -127,8 +121,3 @@ const ClassCard = ({ singleClass }) => {
   );
 };
 export default ClassCard
-
-
-
-
-

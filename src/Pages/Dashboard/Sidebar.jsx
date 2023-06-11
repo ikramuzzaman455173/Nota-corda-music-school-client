@@ -9,6 +9,8 @@ import StudentDashboardNabLinks from './SudentDashboardNabLinks';
 import UseInstructor from '../../Hooks/UserInstructor';
 import InstructorAddClass from './InstructorAddClass';
 import InstructorDashboardNabLinks from './InstructorDashBoardNavLinks';
+import UseAdmin from '../../Hooks/UseAdmin';
+import AdminDashboardNavLinks from './AdminDashboardNavLinks';
 const Sidebar = () => {
   const navigate = useNavigate()
   const { user, logOut } = UseAuth()
@@ -22,6 +24,7 @@ const Sidebar = () => {
     navigate('/')
   }
   const [isInstructor] = UseInstructor()
+  const [isAdmin] = UseAdmin()
   return (
     <>
       {/* Small Screen Navbar */}
@@ -75,8 +78,9 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
-              {isInstructor === false &&<StudentDashboardNabLinks />}
+              {isInstructor === false || isAdmin === false && <StudentDashboardNabLinks />}
               {isInstructor === true &&<InstructorDashboardNabLinks />}
+              {isAdmin === true &&<AdminDashboardNavLinks />}
             </nav>
           </div>
         </div>
