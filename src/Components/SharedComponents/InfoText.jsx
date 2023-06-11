@@ -5,7 +5,7 @@ const InfoText = ({ title }) => {
   const customAnimation = keyframes`
   from {
     opacity: 0;
-    transform: translate3d(200px, -100px, 0);
+    transform: translate3d(-200px, -100px, 0);
   }
 
   to {

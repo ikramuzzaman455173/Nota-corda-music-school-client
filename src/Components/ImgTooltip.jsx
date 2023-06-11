@@ -1,7 +1,7 @@
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 import UseAuth from '../Hooks/UseAuth';
-import PlaceHolderImg from '../assets/placeholder.jpg'
+// import PlaceHolderImg from '../assets/placeholder.jpg'
 const ImgTooltip = () => {
   const { user } =UseAuth()
 
