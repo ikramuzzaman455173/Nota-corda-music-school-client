@@ -5,7 +5,7 @@ import UseAllClass from '../../Hooks/UseAllClass';
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure()
-  const [allClass,refetch] = UseAllClass()
+  const [allClass, refetch] = UseAllClass()
   const handleDeleteInstructorClass = (id) => {
     // console.log(`handleDeleteSelectClass`, id)
     Swal.fire({
@@ -35,9 +35,114 @@ const ManageClasses = () => {
 
   }
 
+
+  // const handleApprovedClass = (id) => {
+  //   console.log(`handleApprovedClass`, id)
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: "You won't be able to update the class status!",
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, update it!'
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       axiosSecure.patch(`/allClass/admin/${id}`)
+  //         .then(data => {
+  //           if (data.data.modifiedCount > 0)
+  //             // console.log(data)
+  //             Swal.fire(
+  //               'Updated!',
+  //               'Your Are Updated Instructor Class Status.',
+  //               'success'
+  //             )
+  //           refetch()
+  //         }).catch(error => console.log(`404 page not found ${error.message}`))
+
+  //     }
+  //   })
+
+  // }
+
+
+  // const handleDeniedClass = (id) => {
+  //   console.log(`handleApprovedClass`, id)
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: "You won't be able to update the class status!",
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, update it!'
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       axiosSecure.patch(`/allClass/adminDenied/${id}`)
+  //         .then(data => {
+  //           if (data.data.modifiedCount > 0)
+  //             // console.log(data)
+  //             Swal.fire(
+  //               'Updated!',
+  //               'Your Are Updated Instructor Class Status.',
+  //               'success'
+  //             )
+  //           refetch()
+  //         }).catch(error => console.log(`404 page not found ${error.message}`))
+
+  //     }
+  //   })
+
+  // }
+
+
+  const handleUpdateClassStatus = (id, status) => {
+    let statusText = '';
+    if (status === 'approved') {
+      statusText = 'Approved';
+    } else if (status === 'denied') {
+      statusText = 'Denied';
+    }
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `You won't be able to update the class status to ${statusText}!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `Yes, update it to ${statusText}!`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const endpoint =
+          status === 'approved'
+            ? `/allClass/admin/${id}`
+            : `/allClass/adminDenied/${id}`;
+
+        axiosSecure
+          .patch(endpoint)
+          .then((data) => {
+            if (data.data.modifiedCount > 0) {
+              Swal.fire(
+                'Updated!',
+                `Your Are Updated Instructor Class Status to ${statusText}.`,
+                'success'
+              );
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.log(`404 page not found ${error.message}`);
+          });
+      }
+    });
+  };
+
+
+
   return (
     <div>
-      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>All instructor total classes add: <span className='text-info dark:text-warning'>{allClass.length||0}</span></h3>
+      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>All instructor total classes add: <span className='text-info dark:text-warning'>{allClass.length || 0}</span></h3>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}
         <div className="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
@@ -81,10 +186,11 @@ const ManageClasses = () => {
                 <tbody className="text-sm divide-y dark:text-white divide-gray-100 text-slate-500 font-medium">
                   {allClass?.map((iClass, i) => {
                     const isApproved = iClass.status === 'approved';
+                    const isDenied = iClass.status === 'denied';
                     return (
                       <tr key={iClass._id}>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-left">{i+1}</div>
+                          <div className="text-left">{i + 1}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="flex items-center">
@@ -119,8 +225,14 @@ const ManageClasses = () => {
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-center flex gap-4 text-sm">
-                            <button disabled={isApproved} className={`border-2 rounded-md p-2 bg-info text-white ${isApproved ? 'opacity-50 cursor-no-drop' : ''}`}>Approved</button>
-                            <button disabled={isApproved}  className={`border-2 rounded-md p-2 bg-info text-white ${isApproved ? 'opacity-50 cursor-no-drop' : ''}`}>Denied</button>
+                            <button disabled={isApproved || isDenied} onClick={() => handleUpdateClassStatus(iClass._id, 'approved')}
+                              className={`border-2 rounded-md p-2 bg-info text-white ${isApproved || isDenied ? 'opacity-50 cursor-no-drop' : ''}`}
+                            >
+                              Approved
+                            </button>
+                            <button disabled={isApproved || isDenied} onClick={() => handleUpdateClassStatus(iClass._id, 'denied')} className={`border-2 rounded-md p-2 bg-info text-white ${isApproved || isDenied ? 'opacity-50 cursor-no-drop' : ''}`} >
+                              Denied
+                            </button>
                           </div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
