@@ -1,27 +1,24 @@
-import React from 'react';
+import {useState,useEffect} from 'react';
 import Container from '../SharedComponents/Container';
 import ClassCard from './ClassCard';
 import InfoText from '../SharedComponents/InfoText';
-import UseClass from '../../Hooks/UseAllClass';
 
 const PopularClasses = () => {
-  const [allClass] = UseClass();
-
-  // Filter the allClass classes with status === "approved"
-  const approvedClasses = allClass.filter(singleClass => singleClass.status === 'approved');
-
-  // Sort approvedClasses based on the "student" field in descending order
-  const sortedClasses = approvedClasses.sort((a, b) => b.students - a.students);
-
-  // Get the first six classes
-  const firstSixClasses = sortedClasses.slice(0, 6);
-
+  const [data, setData] = useState([])
+  useEffect(() => {
+    fetch('http://localhost:4000/PopularClasses')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setData(data)
+      }).catch(error=>console.log(`404 page not found ${error}`))
+    },[])
   return (
     <div>
       <Container>
         <InfoText title={'our popular classes'} />
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
-          {firstSixClasses.map((singleClass) => (
+          {data.map((singleClass) => (
             <ClassCard key={singleClass._id} singleClass={singleClass} />
           ))}
         </div>

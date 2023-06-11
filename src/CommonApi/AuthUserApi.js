@@ -7,7 +7,7 @@ export const savedUser =(user,image) => {
     role: 'user',
     image,
   }
-  console.log(currentUser,'currentuser');
+  // console.log(currentUser,'currentuser');
   fetch(`http://localhost:4000/users`, {
     method: 'POST',
     headers: {

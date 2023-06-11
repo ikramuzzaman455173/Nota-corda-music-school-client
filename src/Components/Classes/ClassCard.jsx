@@ -118,9 +118,9 @@ const ClassCard = ({ singleClass }) => {
 
       <button
         onClick={() => handleSelectClass(_id)}
-        className={`awesome-btn text-center p-2 flex justify-center items-center rounded-md my-5 cursor-pointer w-3/4 mx-auto text-green-500 font-bold ${isSelectDisabled ? 'opacity-50 cursor-no-drop' : ''
+        className={`awesome-btn text-center p-2 flex justify-center items-center rounded-md my-5 cursor-pointer w-3/4 mx-auto text-green-500 font-bold ${isSelectDisabled || isAdmin || isInstructor ? 'opacity-50 cursor-not-allowed' : ''
           }`}
-        disabled={isSelectDisabled}
+        disabled={isSelectDisabled|| isAdmin || isInstructor}
       >
         Select Class
       </button>

@@ -11,7 +11,7 @@ const InstructorClassUpdate = () => {
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm()
   // console.log('data', data);
-  const { class_name, image, available_seats, class_duration, class_level, price, status, students, email, instructor_name,description,_id} = data || {}
+  const { class_name, image, available_seats, class_duration, class_level, price, status, students, email, instructor_name, description, _id } = data || {}
   const onSubmit = (data) => {
     // console.log(`data`, data);
     const { class_name, image, available_seats, class_level, class_duration, price, description } = data || {}
