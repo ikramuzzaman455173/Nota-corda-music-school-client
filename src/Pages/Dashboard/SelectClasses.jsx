@@ -47,7 +47,7 @@ const SelectClasses = () => {
     }
   return (
     <>
-      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>Total Selected Classes Are: <span className='text-info dark:text-warning'>{selectClass.length || 0}</span></h3>
+      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>Total Selected Classes Are: <span className='text-info dark:text-warning'>{selectClasses.length || 0}</span></h3>
       <div className='flex lg:justify-center  lg:flex-row flex-col lg:gap-[400px] gap-2 items-center text-2xl font-medium font-Pt dark:font-Merienda dark:text-white mb-5 text-slate-500'>
         <h3>All Slect Class Total Amount: $<span className='text-info dark:text-warning'>{total|| 0}</span></h3>
         {/* <Link  className='awesome-btn px-10 py-2 rounded-md'>Pay</Link> */}

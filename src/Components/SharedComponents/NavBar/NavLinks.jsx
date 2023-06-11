@@ -7,6 +7,7 @@ import UseAuth from '../../../Hooks/UseAuth';
 import Switcher from "../../DarkMode/SwithDarkMode";
 import UseInstructor from "../../../Hooks/UserInstructor";
 import UseAdmin from "../../../Hooks/UseAdmin";
+import UseIsStudent from "../../../Hooks/UseIsUser";
 // import ToggleButton from "../../DarkMode/ToggleSwitch";
 const NavLinks = ({ open }) => {
   const { user, logOut } = UseAuth()
@@ -19,8 +20,10 @@ const NavLinks = ({ open }) => {
   const location = useLocation();
   const [isInstructor] = UseInstructor()
   const [isAdmin] = UseAdmin()
-  console.log('isAdmin',isAdmin);
-  // console.log('isInsturctor', isInstructor);
+  const [isStudent] = UseIsStudent()
+  console.log('isAdmin', isAdmin);
+  console.log('isInsturctor', isInstructor);
+  console.log('isStudent', isStudent);
   return (
     <>
       <ul className={`md:flex md:items-center md:pb-0 pb-12 bg-white dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-15' : 'top-[-490px]'}`}>
@@ -31,7 +34,7 @@ const NavLinks = ({ open }) => {
         ))}
         {user && (
           <>
-            {isInstructor === false || isAdmin === false && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+            {isStudent === true && <li className='md:ml-8 md:my-0 my-7 font-semibold'>
               <NavLink
                 to={`/dashboard/select-classes`} className={({ isActive }) => isActive ? 'active active-style' : 'default'}>
                 Dashboard
