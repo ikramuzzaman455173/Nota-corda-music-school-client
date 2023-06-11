@@ -17,7 +17,7 @@ const HandleGoogle = () => {
       .then(result => {
         // console.log(result.user);
         // current user save for the db
-        savedUser(result.user)
+        savedUser(result.user,result.user.photoURL)
         navigate(from,{replace:true})
       }).catch(error => {
         setLoading(false)

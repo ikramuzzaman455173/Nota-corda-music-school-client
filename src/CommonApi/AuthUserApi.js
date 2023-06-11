@@ -1,10 +1,13 @@
 //save a user to database
-export const savedUser = user => {
+export const savedUser =(user,image) => {
+  console.log(user,'user');
   const currentUser = {
     email: user.email,
     name: user.name||user.displayName,
-    role:'user'
+    role: 'user',
+    image,
   }
+  console.log(currentUser,'currentuser');
   fetch(`http://localhost:4000/users`, {
     method: 'POST',
     headers: {

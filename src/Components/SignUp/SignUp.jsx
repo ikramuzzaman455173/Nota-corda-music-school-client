@@ -42,7 +42,7 @@ const SignUp = () => {
         setLoading(false)
         // console.log(`Sign Up Successfully !!!`);
         toast(`Sign Up Successfully !!!`, { autoClose: 2000 });
-        savedUser(data)
+        savedUser(data,imageUrl)
         setTimeout(() => {
           navigate(from, { replace: true })
         }, 3000);

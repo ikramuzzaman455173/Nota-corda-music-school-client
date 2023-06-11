@@ -25,7 +25,7 @@ const Login = () => {
       .then(result => {
         // console.log(result.user);
         // save user to db
-        savedUser(result.user)
+        savedUser(result.user,result.user.photoURL)
         toast('LogIn Account Successfully !!!',{autoClose:2000})
         setTimeout(() => {
           navigate(from, { replace: true })

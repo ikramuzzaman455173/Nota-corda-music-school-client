@@ -11,7 +11,7 @@ import UseAdmin from '../../Hooks/UseAdmin';
 
 const ClassCard = ({ singleClass }) => {
   const { user } = UseAuth();
-  const { _id, class_name, image, class_level, description, price, available_seats, instructor_name, class_duration, email } = singleClass || {};
+  const { _id, class_name, image, class_level, description, price, available_seats, instructor_name, class_duration, email,students } = singleClass || {};
   const navigate = useNavigate();
   const location = useLocation();
   const [, refetch] = UseSelectClass();
@@ -30,6 +30,7 @@ const ClassCard = ({ singleClass }) => {
       email: user?.email,
       instructor_email: email,
       payment: false,
+      students
     };
     if (user && user.email) {
       fetch('http://localhost:4000/selectClasses', {
@@ -94,9 +95,15 @@ const ClassCard = ({ singleClass }) => {
           Instructor Name: <span className="dark:text-warning text-info">{instructor_name}</span>
         </p>
         <p className="text-xl font-bold dark:text-white">
-          available seats:{' '}
-          <span className="dark:font-Merienda font-Pt text-warning text-left dark:text-info tracking-wider">
+          available seats:
+          <span className="dark:font-Merienda font-Pt text-warning text-left dark:text-info tracking-wider pl-2">
             {available_seats}
+          </span>
+        </p>
+        <p className="text-xl font-bold dark:text-white">
+          enrolled students:
+          <span className="dark:font-Merienda font-Pt text-warning text-left dark:text-info tracking-wider pl-2">
+            {students}
           </span>
         </p>
         <p className="text-xl font-bold dark:text-white">
@@ -104,8 +111,8 @@ const ClassCard = ({ singleClass }) => {
           {price}
         </p>
         <p className="text-xl font-bold dark:text-white">
-          Class Level:{' '}
-          <span className="dark:font-Merienda font-Pt text-warning dark:text-info tracking-wider">{class_level}</span>
+          Class Level:
+          <span className="dark:font-Merienda font-Pt text-warning dark:text-info tracking-wider pl-2">{class_level}</span>
         </p>
       </div>
 
