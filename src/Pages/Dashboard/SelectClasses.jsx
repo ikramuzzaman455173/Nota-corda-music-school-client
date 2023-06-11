@@ -56,7 +56,7 @@ const SelectClasses = () => {
         {/* Table */}
         <div className="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
           <div className="p-3">
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto overflow-scrollbar">
               <table className="table-auto w-full">
                 <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                   <tr>

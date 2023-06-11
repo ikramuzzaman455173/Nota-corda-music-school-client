@@ -43,7 +43,7 @@ const InstructorMyClasses = () => {
         {/* Table */}
         <div className="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
           <div className="p-3">
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto overflow-scrollbar">
               <table className="table-auto w-full">
                 <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                   <tr>
@@ -106,10 +106,10 @@ const InstructorMyClasses = () => {
                           <div className="text-lg text-center">{iClass.students}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-lg text-center text-warning dark:text-info">{iClass.status}</div>
+                          <div className="text-lg text-center text-warning dark:text-info font-Pt dark:font-Merienda">{iClass.status}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className=" text-center text-sm font-normal border-2 p-2 rounded-md shadow-md w-[200px] overflow-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">{iClass.feedback?iClass.feedback:'No Feedbacks Admin'}...</div>
+                          <div className=" text-center text-sm font-normal border-2 p-2 rounded-md shadow-md cursor-pointer w-[200px] overflow-auto overflow-scrollbar">{iClass.feedback?iClass.feedback:'No Feedbacks add Admin...'}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center">

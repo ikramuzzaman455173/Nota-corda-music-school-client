@@ -48,7 +48,7 @@ const ManageUsers = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">All Classes</h1>
-      <table className="min-w-full divide-y divide-gray-200">
+      <table className="min-w-full divide-y divide-gray-200 overflow-x-auto overflow-scrollbar">
         <thead className="bg-gray-100">
           <tr>
             <th className="py-2">Class Image</th>

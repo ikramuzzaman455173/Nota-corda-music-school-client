@@ -7,7 +7,7 @@ const PaymentHistoryPage = () => {
   const [payHistory, refetch] = UsePaymentHistory();
   const total = payHistory.reduce((sum, item) => item.price + sum, 0)
 
-  // console.log(payHistory);
+  console.log(payHistory);
 
   const handleDeletePaymentHistory = (id) => {
     // console.log(`handleDeleteSelectClass`, id)
@@ -51,7 +51,7 @@ const PaymentHistoryPage = () => {
         {/* Table */}
         <div className="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
           <div className="p-3">
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto overflow-scrollbar">
               <table className="table-auto w-full">
                 <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                   <tr>
@@ -112,7 +112,7 @@ const PaymentHistoryPage = () => {
                           <div className="text-lg text-center">{pay.name}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-lg text-center">{pay.transactionId}</div>
+                          <div className="text-lg text-center">{pay.transectionId}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center">{formattedDate}</div>
