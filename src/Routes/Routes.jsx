@@ -77,7 +77,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'instructorClassUpdate/:id',
-        element: <InstructorClassUpdate />,
+        element:<InstructorRoute><InstructorClassUpdate /></InstructorRoute>,
         loader: ({ params }) => fetch(`http://localhost:4000/allClass/${params.id}`)
       }
     ]
