@@ -20,6 +20,7 @@ import AdminRoute from './AdminRoute'
 import ManageClasses from '../Pages/Dashboard/ManageClasses'
 import ManageUsers from '../Pages/Dashboard/ManageUsers'
 import StudentRoute from './StudentRoute'
+import InstructorClassFeedback from '../Pages/Dashboard/InstructorClassFeedback'
 
 
 export const router = createBrowserRouter([
@@ -90,7 +91,12 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manage-users',
-        element:<AdminRoute><ManageUsers/></AdminRoute>
+        element: <AdminRoute><ManageUsers /></AdminRoute>,
+      },
+      {
+        path: 'class-feedback/:id',
+        element: <AdminRoute><InstructorClassFeedback /></AdminRoute>,
+        loader: ({ params }) => fetch(`http://localhost:4000/allClass/${params.id}`)
       }
     ]
   }

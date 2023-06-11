@@ -66,7 +66,7 @@ const InstructorMyClasses = () => {
                       <div className="font-semibold text-center">status</div>
                     </th>
                     <th className="p-2 whitespace-nowrap">
-                      <div className="font-semibold text-center">feedback</div>
+                      <div className="font-semibold text-center">feedback admin</div>
                     </th>
                     <th className="p-2 whitespace-nowrap">
                       <div className="font-semibold text-center">update class</div>
@@ -109,7 +109,7 @@ const InstructorMyClasses = () => {
                           <div className="text-lg text-center text-warning dark:text-info">{iClass.status}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className=" text-center text-sm font-normal border-2 p-2 rounded-md shadow-md">{iClass.feedback?iClass.feedback:'No Feedbacks Admin...'}</div>
+                          <div className=" text-center text-sm font-normal border-2 p-2 rounded-md shadow-md w-[200px] overflow-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">{iClass.feedback?iClass.feedback:'No Feedbacks Admin'}...</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center">
