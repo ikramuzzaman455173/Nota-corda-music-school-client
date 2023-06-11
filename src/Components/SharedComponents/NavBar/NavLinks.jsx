@@ -17,7 +17,7 @@ const NavLinks = ({ open }) => {
   ];
   const location = useLocation();
   const [isInstructor] = UseInstructor()
-  console.log('isInsturctor', isInstructor);
+  // console.log('isInsturctor', isInstructor);
   return (
     <>
       <ul className={`md:flex md:items-center md:pb-0 pb-12 bg-white dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-15' : 'top-[-490px]'}`}>

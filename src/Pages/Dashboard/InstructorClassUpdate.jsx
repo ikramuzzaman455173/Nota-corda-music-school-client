@@ -10,13 +10,13 @@ const InstructorClassUpdate = () => {
   const data = useLoaderData()
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm()
-  console.log('data', data);
+  // console.log('data', data);
   const { class_name, image, available_seats, class_duration, class_level, price, status, students, email, instructor_name,description,_id} = data || {}
   const onSubmit = (data) => {
-    console.log(`data`, data);
+    // console.log(`data`, data);
     const { class_name, image, available_seats, class_level, class_duration, price, description } = data || {}
     const updateClass = { class_name, image, available_seats:parseInt(available_seats), class_level, class_duration, price: parseInt(price), description, instructor_name,email, status,students}
-    console.log(updateClass);
+    // console.log(updateClass);
     axiosSecure.put(`/allClass/${_id}`, updateClass)
     .then(result => {
       if (result.data.modifiedCount > 0) {

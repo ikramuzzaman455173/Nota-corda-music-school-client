@@ -10,10 +10,10 @@ const InstructorAddClass = () => {
   const { register, handleSubmit, reset } = useForm()
   const [axiosSecure] = useAxiosSecure()
   const onSubmit = (data) => {
-    console.log(`data`, data);
+    // console.log(`data`, data);
     const { class_name, image, available_seats, class_level, class_duration, price, description } = data || {}
     const newClass = { class_name, image, available_seats:parseInt(available_seats), class_level, class_duration, price: parseInt(price), description, instructor_name: user.displayName, email: user.email, status: 'pending',students:0}
-    console.log(newClass);
+    // console.log(newClass);
     axiosSecure.post('/allClass', newClass)
     .then(result => {
       if (result.data.insertedId) {
