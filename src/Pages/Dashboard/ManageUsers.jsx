@@ -12,7 +12,7 @@ const ManageUsers = () => {
     const res = await axiosSecure.get('/users')
     return res.data;
   })
-  console.log('users', users);
+  // console.log('users', users);
 
   const handleDeleteUser = (id) => {
     // console.log(`handleDeleteSelectClass`, id)
@@ -75,7 +75,7 @@ const ManageUsers = () => {
     // console.log(`handleUpdateRoleAdmin`, user)
     const { name, image, email } = user || {}
     const currentUser = {instructor_name:name, email, image }
-    console.log(currentUser);
+    // console.log(currentUser);
     Swal.fire({
       title: 'Are you sure?',
       text: `You won't be change role ${user.name}!`,

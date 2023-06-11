@@ -1,6 +1,6 @@
 //save a user to database
 export const savedUser =(user,image) => {
-  console.log(user,'user');
+  // console.log(user,'user');
   const currentUser = {
     email: user.email,
     name: user.name||user.displayName,
