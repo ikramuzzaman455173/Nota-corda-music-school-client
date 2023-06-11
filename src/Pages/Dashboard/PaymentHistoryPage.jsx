@@ -7,7 +7,7 @@ const PaymentHistoryPage = () => {
   const [payHistory, refetch] = UsePaymentHistory();
   const total = payHistory.reduce((sum, item) => item.price + sum, 0)
 
-  console.log(payHistory);
+  // console.log(payHistory);
 
   const handleDeletePaymentHistory = (id) => {
     // console.log(`handleDeleteSelectClass`, id)
