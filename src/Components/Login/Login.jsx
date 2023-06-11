@@ -32,7 +32,7 @@ const Login = () => {
         }, 3000);
       }).catch(error => {
         console.log(`Error:`, error.message);
-        toast.error(error.message)
+        toast.error('invalid email or password !!!',{autoClose:2000})
         setLoading(false)
       })
   }

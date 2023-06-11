@@ -10,7 +10,7 @@ const StudentDashboardNabLinks = () => {
           className='inline-flex w-full justify-center items-center px-2  rounded-md cursor-pointer text-gray-800 dark:text-white'
         >
           <span className='px-4 py-1 rounded-md bg-info dark:bg-warning dark:hover:bg-info hover:bg-warning text-white'>
-            Students
+            Student
           </span>
           <Switcher />
         </label>
