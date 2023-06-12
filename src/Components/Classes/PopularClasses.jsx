@@ -9,7 +9,7 @@ const PopularClasses = () => {
     fetch('https://summer-camp-school-server-two.vercel.app/PopularClasses')
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         setData(data)
       }).catch(error=>console.log(`404 page not found ${error}`))
     },[])

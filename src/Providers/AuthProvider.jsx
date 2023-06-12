@@ -66,6 +66,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
           }).catch(error => {
             console.log(`Error:`, error.message);
+            setLoading(false)
           })
       }
       else {
