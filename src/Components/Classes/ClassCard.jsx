@@ -32,7 +32,7 @@ const ClassCard = ({ singleClass }) => {
       payment: false,
       students
     };
-    if (user && user?.email) {
+    if (user?.email) {
       fetch('http://localhost:4000/selectClasses', {
         method: 'POST',
         headers: {
@@ -44,7 +44,7 @@ const ClassCard = ({ singleClass }) => {
         .then(data => {
           if (data) {
             refetch();
-            console.log(data)
+            // console.log(data)
             toast('You Are Select The Class !!!', { autoClose: 2000 })
           }
         })

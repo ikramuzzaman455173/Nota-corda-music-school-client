@@ -7,7 +7,7 @@ const UseIsStudent = () => {
   const { user, loading } = UseAuth()
   const { data: isStudent, isLoading: isStudentLoading } = useQuery({
     queryKey: ['isStudent', user?.email],
-    enabled: !loading && !!user?.email && !!localStorage.getItem("access-token"),
+    enabled: !loading && !!user?.email,
     queryFn: async () => {
       if (!loading && user?.email) {
         const res = await axiosSecure(`/users/student/${user?.email}`)
