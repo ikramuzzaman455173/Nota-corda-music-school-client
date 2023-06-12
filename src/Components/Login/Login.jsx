@@ -43,10 +43,10 @@ const Login = () => {
   }
   return (
     <div className='flex justify-center items-center min-h-screen mt-5'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-white shadow-md border-rose-500 dark:border-info border-2 text-slate-600  dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] dark:text-white dark:border-2'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Log In</h1>
-          <p className='text-sm text-gray-400'>
+          <h1 className='my-3 text-4xl font-bold dark:font-Merienda font-Pt'>Sign In</h1>
+          <p className='text-sm text-gray-400 dark:text-white'>
             Sign in to access your account
           </p>
         </div>
@@ -65,7 +65,7 @@ const Login = () => {
                 {...register('email', { required: true })}
                 required
                 placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md normal-case border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md normal-case border-gray-300 focus:outline-info dark:focus:outline-rose-500 bg-gray-200 text-slate-600'
                 data-temp-mail-org='0'
               />
             </div>
@@ -80,7 +80,7 @@ const Login = () => {
                 {...register('password', { required: true })}
                 required
                 placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 normal-case focus:outline-rose-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 normal-case focus:outline-info dark:focus:outline-rose-500 bg-gray-200 text-slate-600'
               />
               <PasswordHideShow handleShowPassowrd={handleShowPassowrd} passwordshow={passwordshow} />
             </div>
@@ -89,7 +89,7 @@ const Login = () => {
           <div>
             <button
               type='submit'
-              className='bg-rose-500 w-full text-center rounded-md py-3 text-white'
+              className='bg-info dark:bg-rose-500 w-full text-center rounded-md py-3 font-bold tracking-wider dark:font-Merienda font-Pt text-[18px] text-white'
             >
               {loading ? <TbFidgetSpinner size={24} className='m-auto animate-spin' /> : 'Continue'}
             </button>
@@ -102,17 +102,17 @@ const Login = () => {
         </div> */}
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
-          <p className='px-3 text-sm dark:text-gray-400'>
+          <p className='px-3 text-sm dark:text-white'>
             Login with social accounts
           </p>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <HandleGoogle/>
-        <p className='px-6 text-sm text-center text-gray-400'>
+        <p className='px-6 text-sm text-center text-gray-400 dark:text-white'>
           Don't have an account yet?{' '}
           <Link
             to='/signup'
-            className='hover:underline hover:text-rose-500 text-gray-600'
+            className='hover:underline hover:text-info dark:text-rose-500 text-slate-600'
           >
             Sign up
           </Link>
