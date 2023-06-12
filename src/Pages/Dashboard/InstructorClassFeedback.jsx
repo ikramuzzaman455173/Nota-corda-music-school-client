@@ -15,7 +15,7 @@ const InstructorClassFeedback = () => {
   const onSubmit = (data) => {
     // console.log(`data`, data);
     const updateClass = { class_name, image, available_seats, class_level, class_duration, price, description, instructor_name,email, status,students,feedback:data.feedback}
-    console.log(updateClass);
+    // console.log(updateClass);
     axiosSecure.put(`/allClassFeeddback/${_id}`, updateClass)
     .then(result => {
       if (result.data.modifiedCount > 0) {

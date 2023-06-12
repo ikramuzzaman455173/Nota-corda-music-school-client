@@ -5,6 +5,8 @@ import UseallInstructor from '../../Hooks/UseAllInstructors'
 
 const PopularInstructors = () => {
   const [allInstructor] = UseallInstructor()
+  console.log(`allInsturctor`,allInstructor);
+
   return (
     <div className='my-20'>
       <Container>

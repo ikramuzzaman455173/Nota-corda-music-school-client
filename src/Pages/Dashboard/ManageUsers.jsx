@@ -172,7 +172,7 @@ const ManageUsers = () => {
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center flex gap-10">
                             <button disabled={admin} onClick={() => handleUpdateRoleAdmin(user)} className={`px-10 py-[5px] border-2 flex items-center gap-2  bg-info text-white hover:bg-warning rounded-md ${admin?'opacity-50 cursor-no-drop' : ''}`}>Make Admin <FaUserShield className='text-xl' /></button>
-                            <button disabled={instructor||user.mainAdmin==='admin'} onClick={() => handleUpdateRoleInstructor(user)} className={`px-10 py-[5px] border-2 flex items-center gap-2  bg-info text-white hover:bg-warning rounded-md ${instructor||user.mainAdmin==='admin'?'opacity-50 cursor-no-drop' : ''}`}>make instructor <RiUserStarFill className='text-xl' /></button>
+                            <button disabled={instructor||user.mainAdmin==='admin'} onClick={() => handleUpdateRoleInstructor(user)} className={`px-10 py-[5px] border-2 flex items-center gap-2  bg-info text-white hover:bg-warning rounded-md ${instructor||user.mainAdmin==='admin'?'opacity-50 cursor-no-drop' : ''}`}>Make Instructor <RiUserStarFill className='text-xl' /></button>
                             <button disabled={user.mainAdmin==='admin'} onClick={() => handleDeleteUser(user)} className={`awesome-btn px-10 py-[2px] rounded-full ${user.mainAdmin==='admin'?'opacity-50 cursor-no-drop' : ''}`}>Delete</button>
                           </div>
                         </td>

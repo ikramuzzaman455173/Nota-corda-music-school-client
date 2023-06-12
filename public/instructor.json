@@ -28,5 +28,10 @@
     "instructor_name": "Jennifer Lee",
     "email": "jenniferlee@example.com",
     "image": "https://images.unsplash.com/photo-1474752651386-dc296d69dc90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fG11c2ljJTIwdGVhY2hlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60"
+  },
+  {
+    "instructor_name": "Md. Kadeer",
+    "email": "kader123@gmail.com",
+    "image": "https://i.ibb.co/w6p6Y01/v7z8mgbff5q-1024x683.webp"
   }
 ]

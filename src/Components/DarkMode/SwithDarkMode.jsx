@@ -15,7 +15,7 @@ export default function Switcher() {
 
 	return (
 		<>
-			<DarkModeSwitch className="border-2 bg-red-500 dark:bg-blue-300 text-white dark:text-white rounded-full flex items-center relative top-4 md:ml-4 ml-10"
+			<DarkModeSwitch className="border-2 bg-rose-500 dark:bg-blue-300 text-white dark:text-white rounded-full flex items-center relative top-4 md:ml-4 ml-10"
 				style={{ marginBottom: "2rem" }}
 				checked={darkSide}
 				onChange={toggleDarkMode}
