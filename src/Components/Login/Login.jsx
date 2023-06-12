@@ -30,6 +30,7 @@ const Login = () => {
         setTimeout(() => {
           navigate(from, { replace: true })
         }, 3000);
+        setLoading(false)
       }).catch(error => {
         console.log(`Error:`, error.message);
         toast.error('invalid email or password !!!',{autoClose:2000})
@@ -112,7 +113,7 @@ const Login = () => {
           Don't have an account yet?{' '}
           <Link
             to='/signup'
-            className='hover:underline hover:text-info dark:text-rose-500 text-slate-600'
+            className='hover:underline hover:text-info dark:hover:text-rose-500 dark:text-[#ddd] text-slate-600'
           >
             Sign up
           </Link>
