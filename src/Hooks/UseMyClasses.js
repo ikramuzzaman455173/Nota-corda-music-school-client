@@ -9,7 +9,7 @@ const UseMyClass = () => {
     queryKey: ['myClass', user?.email],
     enabled: !loading && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
-      const response = await axiosSecure(`https://summer-camp-school-server-two.vercel.app/instructorClass?email=${user?.email}`)
+      const response = await axiosSecure(`http://localhost:4000/instructorClass?email=${user?.email}`)
       // console.log("response from axios",response.data);
       return response.data
     },

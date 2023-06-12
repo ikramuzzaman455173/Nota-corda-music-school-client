@@ -1,19 +1,22 @@
 import { Navigate, useLocation } from "react-router";
+import LoadingSpinner from "../Components/SharedComponents/LoadingSpinner";
+import UseAllUsers from "../Hooks/UseAllUsers";
 import UseAuth from "../Hooks/UseAuth";
 import UseInstructor from "../Hooks/UserInstructor";
-import LoadingSpinner from "../Components/SharedComponents/LoadingSpinner";
 
 
 const InstructorRoute = ({ children }) => {
-    const { user, loading } = UseAuth();
-    const [isInstructor, isInstructorLoading] =UseInstructor()
+    const { user, loading } = UseAuth()
+    const [, isInstructorLoading] = UseInstructor()
+    const [allUsers] = UseAllUsers()
+    const currentUser = allUsers?.find(users => users?.email === user?.email)
     const location = useLocation();
 
     if(loading || isInstructorLoading){
         return <LoadingSpinner/>
     }
 
-    if (user && isInstructor) {
+    if (currentUser?.role === 'instructor') {
         return children;
     }
     return <Navigate to="/" state={{from: location}} replace></Navigate>

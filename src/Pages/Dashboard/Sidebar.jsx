@@ -6,11 +6,9 @@ import { FcSettings } from 'react-icons/fc'
 import UseAuth from '../../Hooks/UseAuth'
 import Logo from '../../Components/SharedComponents/Logo'
 import StudentDashboardNabLinks from './SudentDashboardNabLinks';
-import UseInstructor from '../../Hooks/UserInstructor';
 import InstructorDashboardNabLinks from './InstructorDashBoardNavLinks';
-import UseAdmin from '../../Hooks/UseAdmin';
 import AdminDashboardNavLinks from './AdminDashboardNavLinks';
-import UseIsStudent from '../../Hooks/UseIsUser';
+import UseAllUsers from '../../Hooks/UseAllUsers';
 const Sidebar = () => {
   const navigate = useNavigate()
   const { user, logOut } = UseAuth()
@@ -23,9 +21,10 @@ const Sidebar = () => {
     logOut()
     navigate('/')
   }
-  const [isInstructor] = UseInstructor()
-  const [isAdmin] = UseAdmin()
-  const [isStudent] = UseIsStudent()
+  const [allUsers] = UseAllUsers()
+  const currentUser = allUsers?.find(users => users?.email === user?.email)
+  // console.log(currentUser,'currentUser');
+  // console.log('allUsers',allUsers);
   return (
     <>
       {/* Small Screen Navbar */}
@@ -79,9 +78,9 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
-              {isStudent === true && <StudentDashboardNabLinks />}
-              {isInstructor === true &&<InstructorDashboardNabLinks />}
-              {isAdmin === true &&<AdminDashboardNavLinks />}
+              {currentUser?.role === 'user' && <StudentDashboardNabLinks />}
+              {currentUser?.role === 'instructor' &&<InstructorDashboardNabLinks />}
+              {currentUser?.role === 'admin' &&<AdminDashboardNavLinks />}
             </nav>
           </div>
         </div>

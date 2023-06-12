@@ -12,7 +12,7 @@ import {
 import { createContext, useEffect, useState } from 'react';
 import { app } from '../Firebase/firebase.config';
 
-export const AuthContext = createContext(null)
+export const AuthContext = createContext()
 
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider()
@@ -21,31 +21,31 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  {/* ====Creter New User===== */}
+  {/* ====Creter New User===== */ }
   const createUser = (email, password) => {
     setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  {/* ====Sign In Or LogIn  User===== */}
+  {/* ====Sign In Or LogIn  User===== */ }
   const signIn = (email, password) => {
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
 
-  {/* ====SignIn With Google===== */}
+  {/* ====SignIn With Google===== */ }
   const signInWithGoogle = () => {
     setLoading(true)
     return signInWithPopup(auth, googleProvider)
   }
 
-  {/* ====LogOut User===== */}
+  {/* ====LogOut User===== */ }
   const logOut = () => {
-    setLoading(true)
+    // setLoading(true)
     return signOut(auth)
   }
 
-  {/* ====Update User Current Info===== */}
+  {/* ====Update User Current Info===== */ }
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -59,14 +59,13 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser)
       // console.log('currentUser',currentUser);
       if (currentUser) {
-        axios.post('https://summer-camp-school-server-two.vercel.app/jwt', { email: currentUser.email })
+        axios.post('http://localhost:4000/jwt', { email: currentUser?.email })
           .then(data => {
             // console.log(data.data.token);
-            localStorage.setItem('access-token', data.data.token)
-            setLoading(false)
-          }).catch(error => {
-            console.log(`Error:`, error.message);
-            setLoading(false)
+            if (data.data) {
+              localStorage.setItem('access-token', data?.data?.token)
+              setLoading(false)
+            }
           })
       }
       else {
