@@ -21,7 +21,7 @@ const PaymentHistoryPage = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/payHistory/${id}`, {
+        fetch(`https://summer-camp-school-server-two.vercel.app/payHistory/${id}`, {
           method: "DELETE",
           headers: {
             'content-type': 'application/json'

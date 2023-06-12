@@ -1,18 +1,16 @@
-import { Navigate, useLocation } from "react-router";
+import { Navigate, useLocation } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 import LoadingSpinner from "../Components/SharedComponents/LoadingSpinner";
-import UseAdmin from "../Hooks/UseAdmin";
 import UseAllUsers from "../Hooks/UseAllUsers";
 
 
 const AdminRoute = ({ children }) => {
+    const navigation = useNavigation()
     const { user, loading } = UseAuth();
     const [allUsers] = UseAllUsers()
     const currentUser = allUsers?.find(users => users?.email === user?.email)
-    const [, isAdminLoading] = UseAdmin()
     const location = useLocation();
-
-    if (loading || isAdminLoading) {
+    if (loading||navigation.state==='loading') {
         return <LoadingSpinner />
     }
 
