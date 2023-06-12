@@ -10,7 +10,7 @@ const NavLinks = ({ open }) => {
   const { user, logOut } = UseAuth()
   const [allUsers] = UseAllUsers()
   const currentUser = allUsers?.find(users => users?.email === user?.email)
-  // console.log(currentUser,'currentUser');
+  console.log(currentUser,'currentUser');
   // console.log('allUsers',allUsers);
   const Links = [
     { name: "Home", link: "/" },

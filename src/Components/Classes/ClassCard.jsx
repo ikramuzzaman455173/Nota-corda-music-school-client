@@ -4,20 +4,20 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
-import UseAdmin from '../../Hooks/UseAdmin';
+import UseAllUsers from '../../Hooks/UseAllUsers';
 import UseAuth from '../../Hooks/UseAuth';
 import UseSelectClass from '../../Hooks/UseSelectClass';
-import UseInstructor from '../../Hooks/UserInstructor';
 
 const ClassCard = ({ singleClass }) => {
   const { user } = UseAuth();
-  const { _id, class_name, image, class_level, description, price, available_seats, instructor_name, class_duration, email,students } = singleClass || {};
+  const { _id, class_name, image, class_level, description, price, available_seats, instructor_name, class_duration, email, students } = singleClass || {};
   const navigate = useNavigate();
   const location = useLocation();
   const [, refetch] = UseSelectClass();
   const [isSelectDisabled, setIsSelectDisabled] = useState(false);
-  const [isInstructor] = UseInstructor()
-  const [isAdmin] = UseAdmin()
+  const [allUsers] = UseAllUsers()
+  const currentUser = allUsers?.find(users => users?.email === user?.email)
+
   const handleSelectClass = (id) => {
     const SelectClassInfo = {
       selectClassId: id,
@@ -32,8 +32,8 @@ const ClassCard = ({ singleClass }) => {
       payment: false,
       students
     };
-    if (user && user.email) {
-      fetch('https://summer-camp-school-server-two.vercel.app/selectClasses', {
+    if (user && user?.email) {
+      fetch('http://localhost:4000/selectClasses', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -44,7 +44,7 @@ const ClassCard = ({ singleClass }) => {
         .then(data => {
           if (data) {
             refetch();
-            // console.log(data)
+            console.log(data)
             toast('You Are Select The Class !!!', { autoClose: 2000 })
           }
         })
@@ -70,7 +70,7 @@ const ClassCard = ({ singleClass }) => {
   }, []);
 
   useEffect(() => {
-    setIsSelectDisabled(available_seats === 0 || isAdmin || isInstructor);
+    setIsSelectDisabled(available_seats === 0 || currentUser?.role === 'admin' || currentUser?.role === 'instructor');
   }, [available_seats, user, _id]);
 
   const cardClassName = `overflow-hidden shadow-md p-2 border-2 rounded-md dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]  cursor-pointer group ${available_seats === 0 ? 'bg-red-200' : ''
@@ -118,9 +118,9 @@ const ClassCard = ({ singleClass }) => {
 
       <button
         onClick={() => handleSelectClass(_id)}
-        className={`awesome-btn text-center p-2 flex justify-center items-center rounded-md my-5 cursor-pointer w-3/4 mx-auto text-green-500 font-bold ${isSelectDisabled || isAdmin || isInstructor ? 'opacity-50 cursor-not-allowed' : ''
+        className={`awesome-btn text-center p-2 flex justify-center items-center rounded-md my-5 cursor-pointer w-3/4 mx-auto text-green-500 font-bold ${isSelectDisabled || currentUser?.role === 'admin' || currentUser?.role === 'instructor' ? 'opacity-50 cursor-not-allowed' : ''
           }`}
-        disabled={isSelectDisabled|| isAdmin || isInstructor}
+        disabled={isSelectDisabled || currentUser?.role === 'admin' || currentUser?.role === 'instructor'}
       >
         Select Class
       </button>

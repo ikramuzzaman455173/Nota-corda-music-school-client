@@ -6,7 +6,7 @@ import UseSelectClass from '../../Hooks/UseSelectClass';
 const SelectClasses = () => {
   const [selectClass, refetch] = UseSelectClass()
   const selectClasses = selectClass.filter(singleClass => singleClass.payment === false);
-
+  console.log(selectClasses,'selectclass');
   // console.log(`selectClass`, selectClass);
   const total = selectClasses.reduce((sum, item) => item.price + sum, 0)
 
@@ -22,7 +22,7 @@ const SelectClasses = () => {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://summer-camp-school-server-two.vercel.app/selectClasses/${id}`, {
+          fetch(`http://localhost:4000/selectClasses/${id}`, {
             method: "DELETE",
             headers: {
               'content-type': 'application/json'
