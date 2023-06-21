@@ -4,6 +4,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import UseSelectClass from '../../../Hooks/UseSelectClass'
 import { useLocation } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const Payment = () => {
   const location = useLocation()
@@ -17,11 +18,14 @@ const Payment = () => {
   const price = parseFloat(currentPrice.toFixed(2))
   // console.log('price',price);
   return (
-    <div>
+    <>
+        <Helmet>
+        <title>Music School || Payment Page</title>
+      </Helmet>
       <Elements stripe={stripePromise}>
       <CheckOutForm singleSelectClass={singleSelectClass} price={price}></CheckOutForm>
       </Elements>
-    </div>
+    </>
   )
 }
 

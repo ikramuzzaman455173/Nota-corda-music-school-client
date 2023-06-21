@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import UseSelectClass from '../../Hooks/UseSelectClass';
 
@@ -18,7 +19,7 @@ const EnrolledClasses = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/selectClasses/${id}`, {
+        fetch(`https://summer-camp-school-server-two.vercel.app/selectClasses/${id}`, {
           method: "DELETE",
           headers: {
             'content-type': 'application/json'
@@ -43,6 +44,9 @@ const EnrolledClasses = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>Music School || Enrolled Classes Page</title>
+      </Helmet>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are enrolled Total Classes: <span className='text-info dark:text-warning'>{selectClasses.length}</span></h3>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}

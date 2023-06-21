@@ -4,7 +4,7 @@ const UseAllUsers = () => {
   const {data:allUsers=[],refetch,isLoading:loading} = useQuery({
     queryKey: ['allUsers'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:4000/allUsers')
+      const res = await fetch('https://summer-camp-school-server-two.vercel.app/allUsers')
       return res.json()
     }
   })

@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import UseAllClass from '../../Hooks/UseAllClass';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure()
@@ -142,7 +143,10 @@ const ManageClasses = () => {
 
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Music School || Admin Manage Instructor Classes Page</title>
+      </Helmet>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>All instructor total classes add: <span className='text-info dark:text-warning'>{allClass.length || 0}</span></h3>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}
@@ -238,7 +242,7 @@ const ManageClasses = () => {
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center flex gap-10">
-                            <Link to={`/dashboard/class-feedback/${iClass._id}`}  className='awesome-btn px-10 py-[4px] rounded-md text-sm'>Feedback</Link>
+                            <Link to={`/dashboard/class-feedback/${iClass._id}`} className='awesome-btn px-10 py-[4px] rounded-md text-sm'>Feedback</Link>
                             <button onClick={() => handleDeleteInstructorClass(iClass._id)} className='awesome-btn rounded-md px-10 py-[4px] text-sm'>Delete</button>
                           </div>
                         </td>
@@ -251,7 +255,7 @@ const ManageClasses = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

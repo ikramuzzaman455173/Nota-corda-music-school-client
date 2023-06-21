@@ -4,33 +4,37 @@ import DashboardInfoText from './DashboardInfoText';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form'
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const InstructorClassFeedback = () => {
   const [axiosSecure] = useAxiosSecure()
   const data = useLoaderData()
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm()
-  const { class_name, image, available_seats, class_level, class_duration, price, description,instructor_name,email,status,students,_id } = data || {}
+  const { class_name, image, available_seats, class_level, class_duration, price, description, instructor_name, email, status, students, _id } = data || {}
   // console.log('data', data);
   const onSubmit = (data) => {
     // console.log(`data`, data);
-    const updateClass = { class_name, image, available_seats, class_level, class_duration, price, description, instructor_name,email, status,students,feedback:data.feedback}
+    const updateClass = { class_name, image, available_seats, class_level, class_duration, price, description, instructor_name, email, status, students, feedback: data.feedback }
     // console.log(updateClass);
     axiosSecure.put(`/allClassFeeddback/${_id}`, updateClass)
-    .then(result => {
-      if (result.data.modifiedCount > 0) {
-        toast('Classes Data Feedback Add Admin Successfully !!!', { autoClose: 2000 })
-        setTimeout(() => {
-          navigate('/dashboard/manage-classes')
-        }, 3000);
-          }
-          }).catch(error => {
-            console.log(`Error:`,error.message);
-          })
+      .then(result => {
+        if (result.data.modifiedCount > 0) {
+          toast('Classes Data Feedback Add Admin Successfully !!!', { autoClose: 2000 })
+          setTimeout(() => {
+            navigate('/dashboard/manage-classes')
+          }, 3000);
+        }
+      }).catch(error => {
+        console.log(`Error:`, error.message);
+      })
   }
   return (
     <>
       <div>
+        <Helmet>
+          <title>Music School || Admin Instructor Class Feedback Page</title>
+        </Helmet>
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-md bg-slate-100 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728] text-info dark:text-warning mx-auto my-20 border-2 p-4 rounded-md shadow-md">
           <DashboardInfoText title={'Feedback Class'} />
           <div className='grid md:grid-cols-2 grid-cols-1 w-full gap-4'>

@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import UseMyClass from '../../Hooks/UseMyClasses';
 import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const InstructorMyClasses = () => {
   const [myClass, refetch] = UseMyClass();
@@ -37,8 +38,11 @@ const InstructorMyClasses = () => {
   }
 
   return (
-    <div>
-      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are total classes add: <span className='text-info dark:text-warning'>{myClass.length||0}</span></h3>
+    <>
+      <Helmet>
+        <title>Music School || Instructor My Classes Page</title>
+      </Helmet>
+      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are total classes add: <span className='text-info dark:text-warning'>{myClass.length || 0}</span></h3>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}
         <div className="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
@@ -81,7 +85,7 @@ const InstructorMyClasses = () => {
                     return (
                       <tr key={iClass._id}>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-left">{i+1}</div>
+                          <div className="text-left">{i + 1}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="flex items-center">
@@ -109,11 +113,11 @@ const InstructorMyClasses = () => {
                           <div className="text-lg text-center text-warning dark:text-info font-Pt dark:font-Merienda">{iClass.status}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className=" text-center text-sm font-normal border-2 p-2 rounded-md shadow-md cursor-pointer w-[200px] overflow-auto overflow-scrollbar">{iClass.feedback?iClass.feedback:'No Feedbacks add Admin...'}</div>
+                          <div className=" text-center text-sm font-normal border-2 p-2 rounded-md shadow-md cursor-pointer w-[200px] overflow-auto overflow-scrollbar">{iClass.feedback ? iClass.feedback : 'No Feedbacks add Admin...'}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="text-lg text-center">
-                          <Link to={`/dashboard/instructorClassUpdate/${iClass._id}`} className='awesome-btn px-10 py-[2px] rounded-full'>Update </Link>
+                            <Link to={`/dashboard/instructorClassUpdate/${iClass._id}`} className='awesome-btn px-10 py-[2px] rounded-full'>Update </Link>
                           </div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
@@ -130,7 +134,7 @@ const InstructorMyClasses = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

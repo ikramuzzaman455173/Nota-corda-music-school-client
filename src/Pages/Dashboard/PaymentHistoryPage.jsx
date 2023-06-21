@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import UsePaymentHistory from '../../Hooks/UsePaymentHistory';
 
@@ -21,7 +22,7 @@ const PaymentHistoryPage = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/payHistory/${id}`, {
+        fetch(`https://summer-camp-school-server-two.vercel.app/payHistory/${id}`, {
           method: "DELETE",
           headers: {
             'content-type': 'application/json'
@@ -46,7 +47,10 @@ const PaymentHistoryPage = () => {
   }
   return (
     <div>
-      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are total payments: <span className='text-info dark:text-warning'>$</span>{total||0}</h3>
+      <Helmet>
+        <title>Music School || PaymentHistory Page</title>
+      </Helmet>
+      <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>you are total payments: <span className='text-info dark:text-warning'>$</span>{total || 0}</h3>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}
         <div className="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 dark:bg-gradient-to-r dark:from-[#010314] dark:to-[#0f0728]">
@@ -87,7 +91,7 @@ const PaymentHistoryPage = () => {
                     return (
                       <tr key={pay._id}>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-left">{i+1}</div>
+                          <div className="text-left">{i + 1}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
                           <div className="flex items-center">

@@ -4,6 +4,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaUserShield } from 'react-icons/fa';
 import { RiUserStarFill } from 'react-icons/ri';
+import { Helmet } from 'react-helmet-async';
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure()
@@ -105,7 +106,10 @@ const ManageUsers = () => {
 
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Music School || Admin Manage Users Page</title>
+      </Helmet>
       <h3 className='text-center my-10 font-bold tracking-wider text-slate-500 dark:text-white underline decoration-double md:text-3xl text-xl font-Pt dark:font-Merienda'>site total users is: <span className='text-info dark:text-warning'></span>{users.length || 0}</h3>
       <div className="flex flex-col justify-center h-full">
         {/* Table */}
@@ -185,7 +189,7 @@ const ManageUsers = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

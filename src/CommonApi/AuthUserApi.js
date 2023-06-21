@@ -8,7 +8,7 @@ export const savedUser =(user,image) => {
     image,
   }
   // console.log(currentUser,'currentuser');
-  fetch(`http://localhost:4000/users`, {
+  fetch(`https://summer-camp-school-server-two.vercel.app/users`, {
     method: 'POST',
     headers: {
       'content-type':'application/json'
