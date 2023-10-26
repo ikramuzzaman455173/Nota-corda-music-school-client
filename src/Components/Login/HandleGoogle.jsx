@@ -2,7 +2,6 @@ import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
 // import { toast } from 'react-hot-toast'
 import { useLocation, useNavigate } from 'react-router-dom'
-// import { savedUser } from '../../CommonApi/Auth'
 import UseAuth from '../../Hooks/UseAuth'
 import { savedUser } from '../../CommonApi/AuthUserApi'
 

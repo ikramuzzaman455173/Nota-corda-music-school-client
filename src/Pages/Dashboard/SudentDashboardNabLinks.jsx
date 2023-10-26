@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdClass } from 'react-icons/md'
-import { FaAngleDoubleRight,FaRegCreditCard,FaHistory} from 'react-icons/fa'
+import { FaAngleDoubleRight,FaHistory} from 'react-icons/fa'
 import Switcher from '../../Components/DarkMode/SwithDarkMode';
 import { NavLink } from 'react-router-dom';
 const StudentDashboardNabLinks = () => {

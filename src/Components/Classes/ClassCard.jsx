@@ -20,7 +20,7 @@ const ClassCard = ({ singleClass }) => {
 
   const handleSelectClass = (id) => {
     const SelectClassInfo = {
-      selectClassId: id,
+      selectClassId: id,  
       class_name,
       image,
       class_level,
